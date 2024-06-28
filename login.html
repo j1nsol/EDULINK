@@ -1,350 +1,311 @@
 <html>
 
-
-    <style>
-        .login-container {
-          background-color: var(--sds-color-background-default-default);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          margin: 0 auto;
-          padding: 80px 60px;
-        }
-        
-        @media (max-width: 991px) {
-          .login-container {
-            padding: 0 20px;
-          }
-        }
-        
-        .login-card {
-          border-radius: 20px;
-          box-shadow: 0 0 70px 25px rgba(0, 0, 0, 0.25);
-          background-color: #f4f4f4;
-          width: 900px;
-          max-width: 100%;
-          min-height: 275px;
-          align-self: center;
-          display: flex;
-          margin: 50px 0;
-          padding: 0 0 0 80px;
-        }
-        
-        @media (max-width: 991px) {
-          .login-card {
-            padding-left: 20px;
-            margin-top: 40px;
-          }
-        }
-        
-        .login-content {
-          gap: 20px;
-          display: flex;
-        }
-        
-        @media (max-width: 991px) {
-          .login-content {
-            flex-direction: column;
-            align-items: stretch;
-            gap: 0;
-          }
-        }
-        
-        .login-form-column {
-          display: flex;
-          flex-direction: column;
-          line-height: normal;
-          width: 42%;
-          margin-left: 0;
-        }
-        
-        @media (max-width: 991px) {
-          .login-form-column {
-            width: 100%;
-          }
-        }
-        
-        .login-form {
-          display: flex;
-          flex-direction: column;
-          font-size: 24px;
-          color: var(--sds-color-text-default-default);
-          font-weight: 500;
-          letter-spacing: -0.46px;
-          line-height: 150%;
-          margin-bottom: -2px;
-        }
-        
-        @media (max-width: 991px) {
-          .login-form {
-            margin-top: 40px;
-          }
-        }
-        
-        .logo {
-          aspect-ratio: 1.4;
-          object-fit: cover;
-          object-position: center;
-          width: 100%;
-          margin-top: 20px;
-          min-height: 20px;
-          min-width: 20px;
-          overflow: hidden;
-        }
-        
-        .form-label {
-          font-family: "Montserrat", sans-serif;
-          margin-top: 10px;
-        }
-        
-        @media (max-width: 640px) {
-          .form-label {
-            margin: 5px 0;
-          }
-        }
-        
-        .form-input {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          border-radius: 13px;
-          border: 1px solid #ccc;
-          height: 50px;
-          font-family: "Montserrat", sans-serif;
-          margin: 5px 0;
-          padding: 10px;
-        }
-        
-        @media (max-width: 640px) {
-          .form-input {
-            margin: 0 auto;
-          }
-        }
-        
-        .remember-me-container {
-          position: relative;
-          flex-grow: 0;
-          min-height: 10px;
-          display: flex;
-          flex-direction: row;
-          font-family: "Montserrat", sans-serif;
-        }
-        
-        .remember-me-checkbox {
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          margin-top: 2px;
-          border-radius: 3px;
-          border: 1px solid #ccc;
-          padding: 0 10px 10px;
-        }
-        
-        .remember-me-label {
-          position: relative;
-          height: auto;
-          margin-right: auto;
-          font-family: "sans-serif", sans-serif;
-        }
-        
-        .login-button {
-          all: unset;
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          margin-top: 20px;
-          appearance: none;
-          background-color: black;
-          color: white;
-          border-radius: 13px;
-          text-align: center;
-          cursor: pointer;
-          font-family: "Montserrat", sans-serif;
-          padding: 15px 25px;
-        }
-        
-        @media (max-width: 640px) {
-          .login-button {
-            margin: 0 auto;
-          }
-        }
-        
-        .forgot-password {
-          letter-spacing: -0.22px;
-          color: rgba(74, 144, 226, 1);
-          margin: 5px 0 50px;
-          font: 700 20px Inter, sans-serif;
-        }
-        
-        @media (max-width: 991px) {
-          .forgot-password {
-            margin-top: 40px;
-          }
-        }
-        
-        .signup-column {
-          display: flex;
-          flex-direction: column;
-          line-height: normal;
-          width: 58%;
-          margin-left: 20px;
-        }
-        
-        @media (max-width: 991px) {
-          .signup-column {
-            width: 100%;
-          }
-        }
-        
-        .signup-content {
-          display: flex;
-          flex-direction: column;
-          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-          overflow: hidden;
-          position: relative;
-          flex-grow: 1;
-          align-items: flex-end;
-          font-size: 40px;
-          color: #fff;
-          font-weight: 700;
-          letter-spacing: -0.88px;
-          line-height: 60px;
-          border-radius: 20px;
-          margin-bottom: auto;
-          padding: 80px 30px 0;
-        }
-        
-        @media (max-width: 991px) {
-          .signup-content {
-            max-width: 100%;
-            margin-top: 40px;
-            padding: 0 20px;
-          }
-        }
-        
-        @media (max-width: 640px) {
-          .signup-content {
-            display: none;
-          }
-        }
-        
-        .signup-background {
-          position: absolute;
-          inset: 0;
-          height: 100%;
-          width: 100%;
-          object-fit: cover;
-          object-position: center;
-        }
-        
-        .signup-text-container {
-          position: relative;
-          display: flex;
-          flex-direction: row;
-          margin: auto 0 20px;
-        }
-        
-        .signup-text {
-          position: relative;
-          margin: 0 0 -20px auto;
-          font: 30px Inter, sans-serif;
-        }
-        
-        @media (max-width: 991px) {
-          .signup-text {
-            margin-top: 40px;
-          }
-        }
-        
-        .signup-button-container {
-          position: relative;
-          display: flex;
-          flex-direction: column;
-          margin-top: 20px;
-          height: auto;
-          padding-bottom: 30px;
-        }
-        
-        .signup-button-wrapper {
-          display: flex;
-          flex-direction: row;
-        }
-        
-        .signup-button-text {
-          position: relative;
-          margin: 0 30px 0 auto;
-          font: 30px Inter, sans-serif;
-        }
-        
-        @media (max-width: 991px) {
-          .signup-button-text {
-            margin-top: 40px;
-          }
-        }
-        
-        .signup-button {
-          all: unset;
-          display: flex;
-          flex-direction: column;
-          position: relative;
-          appearance: none;
-          background-color: rgba(255, 255, 255, 1);
-          color: rgba(0, 0, 0, 1);
-          border-radius: 6px;
-          text-align: center;
-          cursor: pointer;
-          font-size: 20px;
-          margin: 0 auto auto;
-          padding: 0 10px;
-        }
-        
-        .visually-hidden {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          padding: 0;
-          margin: -1px;
-          overflow: hidden;
-          clip: rect(0, 0, 0, 0);
-          white-space: nowrap;
-          border: 0;
-        }
-        </style>
-        
-        <main class="login-container">
-          <section class="login-card">
-            <div class="login-content">
-              <div class="login-form-column">
-                <form class="login-form">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets%2Fc24ae5bfb01d41eab83aea3f5ce6f5d6%2F94237862b3254070bbc46f0c94f9c343" class="logo" alt="Company logo" />
-                  <label for="userId" class="form-label">ID Number:</label>
-                  <input type="text" id="userId" placeholder="XX-XXXX-XXX" name="USERID" class="form-input" required />
-                  <label for="password" class="form-label">Password:</label>
-                  <input type="password" id="password" placeholder="XX-XXXX-XXX" name="USERID" class="form-input" required />
-                  <div class="remember-me-container">
-                    <input type="checkbox" id="rememberMe" name="RememberUSER" class="remember-me-checkbox" />
-                    <label for="rememberMe" class="remember-me-label">
-                      <span>Remember me</span>
-                    </label>
-                  </div>
-                  <button type="submit" class="login-button">LOGIN</button>
-                  <a href="#" class="forgot-password">Forgot password?</a>
-                </form>
+<style>
+    .login-container {
+      background-color: var(--sds-color-background-default-default);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+      padding: 80px 60px;
+    }
+    
+    .login-box {
+      border-radius: 20px;
+      box-shadow: 0 0 70px 25px rgba(0, 0, 0, 0.25);
+      background-color: #f4f4f4;
+      width: 900px;
+      max-width: 100%;
+      min-height: 275px;
+      align-self: center;
+      display: flex;
+      flex-grow: 0;
+      margin: 50px 0;
+      padding: 0 0 0 80px;
+    }
+    
+    .login-content {
+      gap: 20px;
+      display: flex;
+    }
+    
+    .login-form-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 42%;
+      margin-left: 0;
+    }
+    
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      font-size: 24px;
+      color: var(--sds-color-text-default-default);
+      font-weight: 500;
+      letter-spacing: -0.46px;
+      line-height: 150%;
+      margin-bottom: -2px;
+    }
+    
+    .logo {
+      aspect-ratio: 1.4;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+      margin-top: 20px;
+      min-height: 20px;
+      min-width: 20px;
+      overflow: hidden;
+    }
+    
+    .input-label {
+      font-family: "Montserrat", sans-serif;
+      margin-top: 10px;
+    }
+    
+    .form-input {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      border-radius: 13px;
+      border: 1px solid #ccc;
+      height: 50px;
+      font-family: "Montserrat", sans-serif;
+      margin: 5px 0;
+      padding: 10px;
+    }
+    
+    .remember-me {
+      position: relative;
+      flex-grow: 0;
+      min-height: 10px;
+      display: flex;
+      flex-direction: row;
+      font-family: "Montserrat", sans-serif;
+    }
+    
+    .remember-checkbox {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      margin-top: 2px;
+      border-radius: 3px;
+      border: 1px solid #ccc;
+      padding: 0 10px 10px;
+    }
+    
+    .remember-text {
+      position: relative;
+      height: auto;
+      margin-right: auto;
+      font-family: "sans-serif", sans-serif;
+    }
+    
+    .login-button {
+      all: unset;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      appearance: none;
+      background-color: black;
+      color: white;
+      border-radius: 13px;
+      text-align: center;
+      cursor: pointer;
+      font-family: "Montserrat", sans-serif;
+      margin: 20px 1px 0 0;
+      padding: 15px 25px;
+    }
+    
+    .forgot-password {
+      letter-spacing: -0.22px;
+      color: rgba(74, 144, 226, 1);
+      margin: 5px 0 50px;
+      font: 700 20px Inter, sans-serif;
+    }
+    
+    .signup-column {
+      display: flex;
+      flex-direction: column;
+      line-height: normal;
+      width: 58%;
+      margin-left: 20px;
+    }
+    
+    .signup-content {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+      overflow: hidden;
+      border: 1px hidden rgba(0, 0, 0, 0);
+      position: relative;
+      flex-grow: 1;
+      align-items: end;
+      font-size: 40px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: -0.88px;
+      line-height: 60px;
+      border-radius: 20px;
+      margin-bottom: auto;
+      max-width: 500px;
+      padding: 80px 30px 0;
+    }
+    
+    .signup-image {
+      position: absolute;
+      inset: 0;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    
+    .signup-text {
+      position: relative;
+      margin: auto auto 0 50px;
+      font: 38px "Inter", sans-serif;
+      font-weight: 700;
+      text-shadow: 1px 1px 6px #000;
+    }
+    
+    .signup-cta {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      margin-top: 20px;
+      height: 81px;
+      width: 400px;
+    }
+    
+    .signup-cta-content {
+      gap: 20px;
+      display: flex;
+    }
+    
+    .signup-cta-text {
+      position: relative;
+      margin: auto auto auto 15;
+      font: 38px "Inter", sans-serif;
+      font-weight: 700;
+      text-shadow: 1px 1px 6px #000;
+    }
+    
+    .signup-button {
+      all: unset;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      appearance: none;
+      background-color: rgba(255, 255, 255, 1);
+      color: rgba(0, 0, 0, 1);
+      border-radius: 6px;
+      text-align: center;
+      margin-right: 15px;
+      cursor: pointer;
+      padding: 15px 10px;
+      font: 20px "Inter", sans-serif;
+      font-weight: 400;
+    }
+    
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+    
+    @media (max-width: 991px) {
+      .login-container {
+        padding: 0 20px;
+      }
+    
+      .login-box {
+        padding-left: 20px;
+        margin-top: 40px;
+      }
+    
+      .login-content {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+    
+      .login-form-column,
+      .signup-column {
+        width: 100%;
+      }
+    
+      .login-form {
+        margin-top: 40px;
+      }
+    
+      .signup-content {
+        max-width: 100%;
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+    
+      .signup-text,
+      .signup-cta-text {
+        margin-top: 40px;
+      }
+    
+      .forgot-password {
+        margin-top: 40px;
+      }
+    }
+    
+    @media (max-width: 640px) {
+      .input-label,
+      .login-button {
+        margin: 5px 0;
+      }
+    
+      .signup-content {
+        display: none;
+      }
+    }
+    </style>
+    
+    <main class="login-container">
+      <section class="login-box">
+        <div class="login-content">
+          <div class="login-form-column">
+            <form class="login-form">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets%2Fc24ae5bfb01d41eab83aea3f5ce6f5d6%2F94237862b3254070bbc46f0c94f9c343" class="logo" alt="Company logo" />
+              <label for="idNumber" class="input-label">ID Number:</label>
+              <input type="text" id="idNumber" placeholder="XX-XXXX-XXX" name="USERID" class="form-input" required />
+              <label for="password" class="input-label">Password:</label>
+              <input type="password" id="password" placeholder="XX-XXXX-XXX" name="USERID" class="form-input" required />
+              <div class="remember-me">
+                <input type="checkbox" id="rememberUser" name="RememberUSER" class="remember-checkbox" />
+                <label for="rememberUser" class="remember-text">
+                  <span>Remember me</span>
+                </label>
               </div>
-              <div class="signup-column">
-                <div class="signup-content">
-                  <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/736e79264cbf8de0d7875001a4050088d19ebd8d5da1f69bed8d05d4dd7e2fd4?apiKey=c24ae5bfb01d41eab83aea3f5ce6f5d6&" class="signup-background" alt="Background image for signup" />
-                  <div class="signup-text-container"></div>
-                  <p class="signup-text">Join us to the brighter</p>
-                  <div class="signup-button-container">
-                    <div class="signup-button-wrapper">
-                      <p class="signup-button-text">future!</p>
-                      <button class="signup-button">Create an account</button>
-                    </div>
-                  </div>
+              <button type="submit" class="login-button">LOGIN</button>
+              <a href="#" class="forgot-password">Forgot password?</a>
+            </form>
+          </div>
+          <div class="signup-column">
+            <div class="signup-content">
+              <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/736e79264cbf8de0d7875001a4050088d19ebd8d5da1f69bed8d05d4dd7e2fd4?apiKey=c24ae5bfb01d41eab83aea3f5ce6f5d6&" class="signup-image" alt="Background image for signup" />
+              <p class="signup-text">Join us to the brighter</p>
+              <div class="signup-cta">
+                <div class="signup-cta-content">
+                  <p class="signup-cta-text">future!</p>
+                  <button class="signup-button">Create an account</button>
                 </div>
               </div>
             </div>
-          </section>
-        </main>
-</html>
+          </div>
+        </div>
+      </section>
+    </main>
