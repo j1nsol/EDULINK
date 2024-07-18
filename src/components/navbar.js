@@ -1,24 +1,24 @@
-
-import './App.css';
-
 import * as React from "react";
+import { Link } from "react-router-dom";
+import navbarlogo from "../images/navbarlogo.png";
 
-function App() {
+function Navbar() {
   return (
     <>
       <div className="div">
         <img
           loading="lazy"
-          srcSet="..."
+          src={navbarlogo}
           className="img"
+          alt= "Logo"
         />
         <div className="div-2">
-          <button className="div-3">Home</button>
+          <button className="div-3"><Link to="/">Home</Link></button>
           <div className="div-4">Courses</div>
           <div className="div-5">About us</div>
           <div className="div-6">Sign up</div>
-          <div className="div-7">
-            <div className="div-8">Login</div>
+          <div className="div-7"><Link to="/login">
+            <div className="div-8">Login</div></Link>
           </div>
         </div>
       </div>
@@ -32,7 +32,7 @@ function App() {
           color: #fff;
           font-weight: 500;
           text-align: center;
-          line-height: 160%;
+          line-height: 100%;
           justify-content: space-between;
         }
         @media (max-width: 991px) {
@@ -136,20 +136,4 @@ function App() {
   );
 }
 
-export const SecondaryCta = () => {
-  return (
-    <a
-      className="secondary-CTA"
-      href="https://animaapp.com/?utm_source=figma-samples&amp;utm_campaign=figma-lp-pets&amp;utm_medium=figma-samples"
-      rel="noopener noreferrer"
-      target="_blank"
-    >
-      <div className="overlap-group">
-        <div className="hover" />
-        <div className="text-wrapper">CTA</div>
-      </div>
-    </a>
-  );
-};
-
-export default App;
+export default Navbar;
