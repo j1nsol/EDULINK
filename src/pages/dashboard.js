@@ -2,6 +2,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../components/sidebar";
+import './dashboard.css';
 
 const Dashboard = () => {
     const navigate = useNavigate();
@@ -16,9 +18,8 @@ const Dashboard = () => {
         }
   return (
     
-    <div>dashboard
-    <button onClick={userSignOut}>Sign Out</button>
-
+    <div>
+        <Sidebar></Sidebar>
     </div>
     
   )
