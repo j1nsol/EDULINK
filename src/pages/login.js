@@ -17,7 +17,7 @@ function Login() {
     signInWithEmailAndPassword(auth,email,password)
     .then((userCredential) => {
       console.log(userCredential)
-      navigate("/dashboard");
+      navigate("/student/dashboard");
     }).catch((error) => {
       console.log(error);
     })
