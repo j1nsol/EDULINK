@@ -1,10 +1,8 @@
-/* General body styles */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
 }
 
-/* Navbar styles */
 .top-bar {
   position: fixed;
   top: 0;
@@ -27,7 +25,7 @@ body {
   aspect-ratio: 4.35;
   object-fit: auto;
   object-position: center;
-  width: 200px;
+  width: 230px;
   margin: 5px 0;
 }
 

@@ -9,7 +9,8 @@ import Landing from './pages/landing';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
-
+import PersonalInformation from './pages/StudentProfile';
+import StudentProfile from './pages/StudentProfile';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
   {
     path: "/student/dashboard",
     element: <Dashboard/>,
+  },
+  {
+    path: "/student/profile",
+    element:<StudentProfile/>,
   },
 ]);
 
