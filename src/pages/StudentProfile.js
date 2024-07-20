@@ -1,8 +1,11 @@
 import React from 'react';
 import './StudentProfile.css';
+import Sidebar from '../components/sidebar';
 
 function PersonalInformation() {
   return (
+    <div>
+      <Sidebar></Sidebar>
     <div className="personal-information">
       <div className="content-wrapper">
         <div className="column">
@@ -116,6 +119,7 @@ function PersonalInformation() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }
