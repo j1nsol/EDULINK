@@ -9,8 +9,8 @@ import Landing from './pages/landing';
 import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
-import PersonalInformation from './pages/StudentProfile';
 import StudentProfile from './pages/StudentProfile';
+import Accounttab from './pages/accounttab';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +33,10 @@ const router = createBrowserRouter([
     path: "/student/profile",
     element:<StudentProfile/>,
   },
+  {
+    path: "/student/account",
+    element:<Accounttab/>,
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
