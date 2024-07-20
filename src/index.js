@@ -11,6 +11,7 @@ import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import PersonalInformation from './pages/StudentProfile';
 import StudentProfile from './pages/StudentProfile';
+import Registration from './pages/registration';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/student/profile",
     element:<StudentProfile/>,
+  },
+  {
+    path: "/student/registration",
+    element:<Registration/>,
   },
 ]);
 
