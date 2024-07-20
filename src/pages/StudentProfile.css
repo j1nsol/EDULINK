@@ -2,28 +2,34 @@
   border-radius: 20px;
   background-color: #fff;
   padding: 30px 21px 80px;
-  max-width: 1200px; /* Set a max width for the container */
-  margin: 0 auto; /* Center the container */
+  max-width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
 }
 
 .content-wrapper {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .column {
   flex: 0 0 16%;
+  box-sizing: border-box;
 }
 
 .column-2 {
   flex: 1;
+  box-sizing: border-box;
 }
 
 .info-container {
   display: flex;
   flex-direction: column;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .header {
@@ -34,6 +40,7 @@
   padding: 22px 30px;
   font: 700 36px/50% Poppins, -apple-system, Roboto, Helvetica, sans-serif;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .info-content {
@@ -44,6 +51,7 @@
   flex-direction: column;
   padding: 25px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .info-section {
@@ -52,30 +60,35 @@
   gap: 18px;
   margin-top: 8px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .info-row {
   display: flex;
   gap: 20px;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .column-3 {
   flex: 1;
+  box-sizing: border-box;
 }
 
 .profile-image {
   aspect-ratio: 0.81;
   object-fit: cover;
   object-position: center;
-  width: 155px;
-  max-width: 100%;
+  width: 100%;
+  max-width: 155px;
+  box-sizing: border-box;
 }
 
 .info-grid {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  box-sizing: border-box;
 }
 
 .info-group {
@@ -83,18 +96,21 @@
   gap: 20px;
   flex-wrap: wrap;
   width: 100%;
+  box-sizing: border-box;
 }
 
 .info-item {
   display: flex;
   flex-direction: column;
   flex: 1;
+  box-sizing: border-box;
 }
 
 .info-label {
   color: #05445e;
   font-feature-settings: "clig" off, "liga" off;
   font: 500 16px/112.5% Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 .info-value {
@@ -106,17 +122,18 @@
   padding: 11px 30px;
   font: 400 18px/178% Poppins, -apple-system, Roboto, Helvetica, sans-serif;
   white-space: nowrap;
+  box-sizing: border-box;
 }
 
 @media (max-width: 991px) {
   .personal-information {
-    padding-left: 20px;
+    padding: 20px;
   }
 
   .content-wrapper {
     flex-direction: column;
     align-items: stretch;
-    gap: 0px;
+    gap: 20px;
   }
 
   .column,
@@ -125,35 +142,48 @@
   }
 
   .info-container {
-    max-width: 100%;
-    margin-top: 40px;
+    margin-top: 20px;
   }
 
   .header {
-    max-width: 100%;
-    padding: 0 20px;
+    padding: 10px 20px;
+    font-size: 24px;
   }
 
   .info-content {
-    max-width: 100%;
-    padding: 0 20px;
+    padding: 20px;
+  }
+
+  .info-row {
+    flex-direction: column;
+  }
+
+  .info-group {
+    flex-direction: column;
   }
 
   .profile-image {
     margin-top: 16px;
   }
 
-  .info-grid {
-    max-width: 100%;
-    margin-top: 30px;
+  .info-value {
+    white-space: normal;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 18px;
+    padding: 10px 15px;
   }
 
-  .info-group {
-    flex-wrap: wrap;
+  .info-label {
+    font-size: 14px;
   }
 
   .info-value {
-    white-space: initial;
-    padding: 0 20px;
+    font-size: 16px;
+    padding: 10px 15px;
   }
 }
