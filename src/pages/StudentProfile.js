@@ -27,6 +27,8 @@ function PersonalInformation() {
     municipalityCity: '',
     zipCode: '',
   });
+  const [profileImage, setProfileImage] = useState(null);
+  const [imagePreviewUrl, setImagePreviewUrl] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,6 +50,18 @@ function PersonalInformation() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setProfileImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreviewUrl(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = auth.currentUser;
@@ -55,6 +69,13 @@ function PersonalInformation() {
       try {
         await setDoc(doc(db, "users", user.uid), formData);
         console.log('Data saved successfully');
+        // Upload the image to storage and save the URL to the database
+        // You can use Firebase Storage for this purpose
+
+
+        // palihug nalag adjust sa pagsuds sa container wa koy data lisod i chatgpts selpon 
+
+        
       } catch (error) {
         console.error('Error saving data:', error);
       }
@@ -63,11 +84,18 @@ function PersonalInformation() {
 
   return (
     <div>
-      <Sidebar />
       <div className="personal-information">
         <form onSubmit={handleSubmit} className="content-wrapper">
           <div className="column">
-            <img loading="lazy" src="https://cdn.builder.io/api/v1/image/assets/TEMP/06632949bef9bc4dbed8293b071d72f3d69aaa4adaa997f630ff734eae92504c?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212&" className="profile-image" alt = "profile picture" />
+            <div className="profile-image-wrapper">
+              <img
+                loading="lazy"
+                src={imagePreviewUrl || "https://cdn.builder.io/api/v1/image/assets/TEMP/06632949bef9bc4dbed8293b071d72f3d69aaa4adaa997f630ff734eae92504c?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212&"}
+                className="profile-image"
+                alt="profile picture"
+              />
+              <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
+            </div>
           </div>
           <div className="column-2">
             <div className="info-container">
