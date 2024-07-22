@@ -1,5 +1,5 @@
 import React from 'react'
-import Navbar from '../components/navbar'
+import Navbar from '../components/navbar';
 import landingpagebg from "../images/landingpagebg.jpg";
 import './landing.css';
 import { Link } from "react-router-dom";
@@ -7,7 +7,7 @@ function Landing() {
   return (
 
     <div>
-        <Navbar></Navbar>
+        <Navbar/>
           <div className="container">
           <div className="textContent">
           <div className="title">

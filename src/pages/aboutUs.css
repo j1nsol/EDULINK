@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .about-us-wrapper {
+    padding-top: 150px;
+  }
+  
+  .about-us-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .developer-card {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    background-color: rgba(212, 241, 244, 1);
+    border-radius: 10px;
+    padding: 30px;
+    margin-bottom: 50px;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .developer-image-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .developer-description-container {
+    flex: 2;
+    padding-left: 20px;
+  }
+  
+  .developer-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .developer-name {
+    font-size: 20px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .developer-description {
+    font-size: 16px;
+    color: #333;
+  }
+  

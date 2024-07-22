@@ -21,6 +21,7 @@ function Navbar() {
             <div className="div-5">Courses</div>
           </div>
           <div className="div-6">
+            <Link to="/about-us" className="no-underline"></Link>
             <div className="div-7">About us</div>
           </div>
           <div className="div-8">

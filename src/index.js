@@ -11,6 +11,7 @@ import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import StudentProfile from './pages/StudentProfile';
 import Accounttab from './pages/accounttab';
+import AboutUs from './pages/aboutUs';
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "/student/account",
     element:<Accounttab/>,
+  },
+  {
+    path: "/about-us",
+    element: <AboutUs/>,
   }
 ]);
 
