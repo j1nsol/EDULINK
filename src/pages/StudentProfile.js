@@ -10,10 +10,11 @@ function PersonalInformation() {
     firstName: '',
     middleName: '',
     suffix: '',
-    classification: 'Freshman',
-    department: 'Baccalaureate',
-    program: 'BS in Computer Engineering',
-    yearLevel: '3',
+    classification: '',
+    department: '',
+    program: '',
+    programcode : '',
+    yearlevel: '',
     dateOfBirth: '',
     placeOfBirth: '',
     age: '',
@@ -44,6 +45,22 @@ function PersonalInformation() {
 
     fetchData();
   }, []);
+
+  useEffect(() => {
+    switch (formData.program) {
+      case 'BS in Computer Engineering':
+        setFormData(prevState => ({ ...prevState, programcode: 'BSCPE' }));
+        break;
+      case 'BS in Pharmacy':
+        setFormData(prevState => ({ ...prevState, programcode: 'BSPH' }));
+        break;
+      case 'BS in Civil Engineering':
+        setFormData(prevState => ({ ...prevState, programcode: 'BSCE' }));
+        break;
+      default:
+        setFormData(prevState => ({ ...prevState, programcode: '' }));
+    }
+  }, [formData.program]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -154,7 +171,8 @@ function PersonalInformation() {
                         </div>
                         <div className="info-item">
                           <div className="info-label">Year Level</div>
-                          <select name="yearLevel" value={formData.yearLevel} onChange={handleChange} className="info-value">
+                          <select name="yearLevel" value={formData.yearlevel} onChange={handleChange} className="info-value">
+                          <option value="0"></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
