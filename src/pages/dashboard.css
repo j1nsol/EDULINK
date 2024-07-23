@@ -1,0 +1,7 @@
+.dashboardcolumn {
+    display: flex;
+    flex-direction: column;
+    line-height: normal;
+    width: 46%;
+    margin-left: 0px;
+  }

@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.top-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(5, 68, 94, 0.9);
+  z-index: 1000;
+}
+
+.div {
+  display: flex;
+  padding: 10px 20px;
+  background-color: #05445e;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.img {
+  aspect-ratio: 4.35;
+  object-fit: auto;
+  object-position: center;
+  width: 230px;
+  margin: 5px 0;
+}
+
+.div-2 {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin: auto 0;
+}
+
+.div-3, .div-4, .div-6, .div-8, .div-10 {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  font-family: Poppins, sans-serif;
+  background-color: #05445e;
+  color: #fff;
+  border-radius: 15px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.div-3:hover, .div-4:hover, .div-6:hover, .div-8:hover, .div-10:hover {
+  background-color: #003f5c;
+}
+
+.div-5, .div-7, .div-9, .div-11 {
+  padding: 0;
+  color: inherit;
+  font-size: 16px;
+}
+
+.div-10 {
+  background-color: #fff;
+  color: #05445e;
+}
+
+.div-10:hover {
+  background-color: #e6e6e6;
+}
+
+.no-underline {
+  text-decoration: none;
+  color: inherit;
+}
+
+@media (max-width: 991px) {
+  .div {
+    flex-wrap: wrap;
+    padding-right: 20px;
+  }
+
+  .div-2 {
+    flex-wrap: wrap;
+  }
+
+  .img {
+    width: 100px;
+  }
+
+  .div-3, .div-4, .div-6, .div-8, .div-10 {
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
