@@ -10,6 +10,9 @@ import Login from './pages/login';
 import Signup from './pages/signup';
 import Dashboard from './pages/dashboard';
 import StudentProfile from './pages/StudentProfile';
+import AboutUs from './pages/aboutUs';
+import Accounttab from './pages/accounttab';
+import Registration from './pages/registration';
 
 
 const router = createBrowserRouter([
@@ -22,6 +25,10 @@ const router = createBrowserRouter([
     element: <Login/>,
   },
   {
+    path: "/about-us",
+    element:<AboutUs/>,
+  },
+  {
     path: "/signup",
     element: <Signup/>,
   },
@@ -32,6 +39,14 @@ const router = createBrowserRouter([
   {
     path: "/student/profile",
     element:<StudentProfile/>,
+  },
+  {
+    path: "/student/account",
+    element:<Accounttab/>,
+  },
+  {
+    path: "/student/registration",
+    element:<Registration/>,
   }
 
 ]);

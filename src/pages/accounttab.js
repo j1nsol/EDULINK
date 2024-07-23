@@ -5,7 +5,7 @@ import Sidebar from '../components/sidebar';
 function Accounttab() {
   return (
     <div>
-    <Sidebar></Sidebar>
+    <Sidebar/>
     <div className="account-tab">
       <div className="main-content">
         <div className="content-container">

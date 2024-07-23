@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore';
-import { db, auth } from '../firebase'; // Adjust the import based on your Firebase setup
-import './registration.css'; // Import your CSS file
+import { db, auth } from '../firebase';
+import './registration.css';
+import Sidebar from '../components/sidebar';
 
 function CurriculumTable() {
   const [curriculumData, setCurriculumData] = useState([]);
@@ -145,88 +146,91 @@ function CurriculumTable() {
   const filteredCurriculumData = curriculumData.filter(item => !enrolledSubjects.includes(item.subjectcode));
 
   return (
-    <div className="table-container">
-      <h1>Curriculum Table</h1>
-      <table className="centered-table">
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Course ID</th>
-            <th>Year Level</th>
-            <th>Term</th>
-            <th>Subject Code</th>
-            <th>Description</th>
-            <th>Lec Hours</th>
-            <th>Lab Hours</th>
-            <th>Credited Units</th>
-            <th>Contact Hours</th>
-            <th>Schedules</th> {/* New column */}
-          </tr>
-        </thead>
-        <tbody>
-          {filteredCurriculumData.map((item) => (
-            <tr key={item.id}>
-              <td>{item.id}</td>
-              <td>{item.courseid}</td>
-              <td>{item.yearlevel}</td>
-              <td>{item.term}</td>
-              <td>{item.subjectcode}</td>
-              <td>{item.description}</td>
-              <td>{item['lec hours']}</td>
-              <td>{item['lab hours']}</td>
-              <td>{item['credited units']}</td>
-              <td>{item['contact hours']}</td>
-              <td>
-                <select
-                  className="schedulebox"
-                  onChange={(e) => {
-                    const selectedSection = e.target.value;
-                    if (selectedSection === "No section available") return;
-                    const section = getSectionsForSubject(item.subjectcode)
-                      .find(sec => sec.description === selectedSection);
-                    if (section) {
-                      handleSectionChange(item.subjectcode, section.sectionCode, section.description);
-                    }
-                  }}
-                >
-                  {getSectionsForSubject(item.subjectcode).length === 0 ? (
-                    <option value="No section available">No section available</option>
-                  ) : (
-                    <>
-                      <option value="">Select a section</option>
-                      {getSectionsForSubject(item.subjectcode).map((section) => (
-                        <option key={section.id} value={section.description}>
-                          {section.description}
-                        </option>
-                      ))}
-                    </>
-                  )}
-                </select>
-              </td>
+    <div className="main-container-reg">
+      <Sidebar/>
+      <div className="table-container">
+        <h1>Curriculum Table</h1>
+        <table className="centered-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Course ID</th>
+              <th>Year Level</th>
+              <th>Term</th>
+              <th>Subject Code</th>
+              <th>Description</th>
+              <th>Lec Hours</th>
+              <th>Lab Hours</th>
+              <th>Credited Units</th>
+              <th>Contact Hours</th>
+              <th>Schedules</th> {/* New column */}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {filteredCurriculumData.map((item) => (
+              <tr key={item.id}>
+                <td>{item.id}</td>
+                <td>{item.courseid}</td>
+                <td>{item.yearlevel}</td>
+                <td>{item.term}</td>
+                <td>{item.subjectcode}</td>
+                <td>{item.description}</td>
+                <td>{item['lec hours']}</td>
+                <td>{item['lab hours']}</td>
+                <td>{item['credited units']}</td>
+                <td>{item['contact hours']}</td>
+                <td>
+                  <select
+                    className="schedulebox"
+                    onChange={(e) => {
+                      const selectedSection = e.target.value;
+                      if (selectedSection === "No section available") return;
+                      const section = getSectionsForSubject(item.subjectcode)
+                        .find(sec => sec.description === selectedSection);
+                      if (section) {
+                        handleSectionChange(item.subjectcode, section.sectionCode, section.description);
+                      }
+                    }}
+                  >
+                    {getSectionsForSubject(item.subjectcode).length === 0 ? (
+                      <option value="No section available">No section available</option>
+                    ) : (
+                      <>
+                        <option value="">Select a section</option>
+                        {getSectionsForSubject(item.subjectcode).map((section) => (
+                          <option key={section.id} value={section.description}>
+                            {section.description}
+                          </option>
+                        ))}
+                      </>
+                    )}
+                  </select>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
-      <h1>Enrolled Subjects</h1>
-      <table className="centered-table">
-        <thead>
-          <tr>
-            <th>Subject Code</th>
-            <th>Section Code</th>
-            <th>Section Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {userEnrolledSubjects.map((subject, index) => (
-            <tr key={index}>
-              <td>{subject.subjectCode}</td>
-              <td>{subject.sectionCode}</td>
-              <td>{subject.sectionDescription}</td>
+        <h1>Enrolled Subjects</h1>
+        <table className="centered-table">
+          <thead>
+            <tr>
+              <th>Subject Code</th>
+              <th>Section Code</th>
+              <th>Section Description</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {userEnrolledSubjects.map((subject, index) => (
+              <tr key={index}>
+                <td>{subject.subjectCode}</td>
+                <td>{subject.sectionCode}</td>
+                <td>{subject.sectionDescription}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
