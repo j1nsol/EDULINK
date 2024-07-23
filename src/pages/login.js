@@ -77,9 +77,11 @@ function Login() {
                   className="img-3"
                   alt="background"
                 />
+                <Link to="/signup">
                 <div className="login18">
-                  <div className="login19"><Link to="/signup">Create an account</Link></div>
+                  <div className="login19">Create an account</div>
                 </div>
+                </Link>
                 <div className="login20">Join us to the brighter future!</div>
               </div>
             </div>

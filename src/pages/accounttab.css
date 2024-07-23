@@ -1,0 +1,171 @@
+.account-tab {
+    border-radius: 20px;
+    background-color: #fff;
+    padding: 30px 22px 79px;
+    margin-left: auto; /* Align the account-tab to the right */
+    max-width: 84%; /* Ensure it does not take more than 84% of the screen width */
+  }
+  
+  .main-content {
+    width: 100%; /* Full width of account-tab */
+  }
+  
+  .content-container {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+  }
+  
+  .subject-table-header {
+    border-radius: 20px;
+    background-color: #189ab4;
+    color: #fff;
+    text-align: center;
+    padding: 22px 60px;
+    font: 500 20px/160% Poppins, -apple-system, Roboto, Helvetica, sans-serif;
+  }
+  
+  .subject-table {
+    border-radius: 20px;
+    background-color: rgba(212, 241, 244, 1);
+    display: flex;
+    margin-top: 17px;
+    flex-direction: column;
+    align-items: start;
+    padding: 7px 20px 17px;
+  }
+  
+  .table-row {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    font-size: 18px;
+    line-height: 178%;
+    margin-top: 12px;
+  }
+  
+  .table-cell {
+    display: flex;
+    gap: 13px;
+    flex: 1;
+  }
+  
+  .cell-label {
+    color: #000;
+    font-family: Poppins, sans-serif;
+    font-weight: 500;
+    margin: auto 0;
+  }
+  
+  .cell-value {
+    font-family: Poppins, sans-serif;
+    justify-content: center;
+    align-items: start;
+    border-radius: 15px;
+    border: 1px solid #000;
+    color: #333;
+    font-weight: 400;
+    flex-grow: 1;
+    padding: 18px 30px;
+  }
+  
+  .table-row.full-width .cell-value {
+    width: 100%;
+    padding: 56px 30px;
+  }
+  
+  .table-row.half-width {
+    width: 50%;
+    padding: 40px 20px;
+  }
+
+  .table-footer {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    margin-top: 17px;
+  }
+  
+  .footer-column {
+    width: 50%;
+  }
+  
+  .proceed-button {
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid #05445e;
+    background-color: #05445e;
+    display: flex;
+    margin-top: 72px;
+    font-size: 16px;
+    color: #f5f5f5;
+    font-weight: 700;
+    line-height: 100%;
+    width: 100%;
+    padding: 12px 20px;
+  }
+  
+  .button-content {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  
+  .button-text {
+    font-family: Poppins, sans-serif;
+  }
+  
+  .button-icon {
+    aspect-ratio: 1;
+    object-fit: auto;
+    object-position: center;
+    width: 16px;
+  }
+  
+  @media (max-width: 991px) {
+    .account-tab {
+      padding: 0 20px;
+      max-width: 100%; /* Full width on smaller screens */
+    }
+  
+    .content-wrapper {
+      flex-direction: column;
+    }
+  
+    .sidebar,
+    .main-content {
+      width: 100%;
+    }
+  
+    .sidebar-content {
+      margin-top: 40px;
+    }
+  
+    .menu-text {
+      padding: 13px 20px;
+    }
+  
+    .content-container {
+      margin-top: 40px;
+    }
+  
+    .subject-table-header {
+      padding: 22px 20px;
+    }
+  
+    .table-row,
+    .table-cell {
+      flex-wrap: wrap;
+    }
+  
+    .cell-value {
+      padding: 18px 20px;
+    }
+   
+    .proceed-button {
+      margin-top: 40px;
+      padding: 12px 20px;
+    }
+  }
+  
