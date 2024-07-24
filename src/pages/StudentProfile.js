@@ -86,13 +86,6 @@ function PersonalInformation() {
       try {
         await setDoc(doc(db, "users", user.uid), formData);
         console.log('Data saved successfully');
-        // Upload the image to storage and save the URL to the database
-        // You can use Firebase Storage for this purpose
-
-
-        // palihug nalag adjust sa pagsuds sa container wa koy data lisod i chatgpts selpon 
-
-        
       } catch (error) {
         console.error('Error saving data:', error);
       }
@@ -101,6 +94,7 @@ function PersonalInformation() {
 
   return (
     <div>
+      <Sidebar/>
       <div className="personal-information">
         <form onSubmit={handleSubmit} className="content-wrapper">
           <div className="column-2">
