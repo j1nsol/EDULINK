@@ -24,8 +24,8 @@ body {
   #image-track {
     display: flex;
     gap: 10vmin;
-    position: absolute;
-    top: 50%;
+    position:relative;
+    top: 30%;
     left: 50%;
     transform: translate(0%, -50%);
     transition: transform 1s ease;

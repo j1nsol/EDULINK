@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 import Navbar from '../components/navbar';
 import landingpagebg from "../images/landingpagebg.jpg";
-import Courses from './courses'; // Import the Courses component
+import Courses from './courses';
 import './landing.css';
 import marbench from "../images/marbench (1).jpg";
 import flex from "../images/flex.jpg";
@@ -44,10 +44,16 @@ function Landing() {
           />
         </div>
       </div>
-      <div>
-      <Courses /> {/* Add Courses component here */}
+      <div id="courses" className="section">
+        <div className="section-header-box">
+          <h2 className="section-header">Courses</h2>
+        </div>
+        <Courses />
       </div>
       <div id="about-us" className="about-us-wrapper">
+        <div className="section-header-box">
+          <h2 className="section-header">About Us</h2>
+        </div>
         <div className="about-us-container">
           {developers.map((dev, index) => (
             <div key={index} className="developer-card">
@@ -63,7 +69,6 @@ function Landing() {
         </div>
       </div>
     </div>
-    
   );
 }
 
