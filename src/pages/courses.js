@@ -9,7 +9,7 @@ function Courses() {
     useEffect(() => {
         const track = document.getElementById("image-track");
 
-        if (!track) return;
+        if (!track) return; // Ensure the element exists
 
         const handleMouseDown = e => {
             track.dataset.mouseDownAt = e.clientX;
@@ -46,19 +46,18 @@ function Courses() {
     }, []);
 
     return (
-        <body>
-<div className='course-container'>
+      <body>
+        <div className='course-container'>
             <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
                 <img className="image" src={tbd} alt="tbd" draggable="false" />
                 <img className="image" src={BSCE} alt="BSCE" draggable="false" />
                 <img className="image" src={BSCPE} alt="BSCPE" draggable="false" />
                 <img className="image" src={BSPHARMA} alt="BSPHARMA" draggable="false" />
                 <img className="image" src={tbd} alt="tbd" draggable="false" />
-                <img className="image" src={tbd} alt="tbd" draggable="false" />
+                
             </div>
         </div>
-        </body>
-        
+      </body>
     );
 }
 

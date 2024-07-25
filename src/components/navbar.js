@@ -7,25 +7,25 @@ function Navbar() {
   return (
     <div className="top-bar">
       <div className="div">
-        <a href="#home" className="no-underline">
+        <Link to="/#home" className="no-underline">
           <img loading="lazy" src={navbarlogo} className="img" alt="Logo" />
-        </a>
+        </Link>
         <div className="div-0">
-          <a href="#home" className="no-underline">
+          <Link to="/#home" className="no-underline">
             <div className="div-2">
               <div className="div-3">Home</div>
             </div>
-          </a>
-          <a href="#courses" className="no-underline">
+          </Link>
+          <Link to="/#courses" className="no-underline">
             <div className="div-4">
               <div className="div-5">Courses</div>
             </div>
-          </a>
-          <a href="#about-us" className="no-underline">
+          </Link>
+          <Link to="/#about-us" className="no-underline">
             <div className="div-6">
               <div className="div-7">About us</div>
             </div>
-          </a>
+          </Link>
           <Link to="/signup" className="no-underline">
             <div className="div-8">
               <div className="div-9">Sign up</div>

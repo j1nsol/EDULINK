@@ -282,6 +282,7 @@ function CurriculumTable() {
 
   const filteredCurriculumData = curriculumData.filter(item => !enrolledSubjects.includes(item.subjectcode));
   return (
+    <body>
     <div className="main-container-reg">
       <Sidebar />
       <div className="table-container">
@@ -388,6 +389,7 @@ function CurriculumTable() {
         </table>
       </div>
     </div>
+        </body>
   );
 }
 

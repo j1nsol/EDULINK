@@ -12,7 +12,6 @@ import Dashboard from './pages/dashboard';
 import StudentProfile from './pages/StudentProfile';
 import Accounttab from './pages/accounttab';
 import Registration from './pages/registration';
-import Courses from './pages/courses';
 
 
 
@@ -44,12 +43,7 @@ const router = createBrowserRouter([
   {
     path: "/student/registration",
     element:<Registration/>,
-  },
-  {
-    path: "courses",
-    element:<Courses/>,
   }
-
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
