@@ -6,7 +6,7 @@ import signupbg from "../images/signupbg.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from '../firebase';
 import { doc, setDoc, getDocs, collection, query, where } from "firebase/firestore";
-import { useNavigate } from "react-router-dom"; // Import useNavigate
+import { useNavigate } from "react-router-dom"; 
 
 const INITIAL_STUDENT_ID = "24-0000-001";
 
@@ -19,21 +19,20 @@ function Signup() {
     password: ''
   });
 
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const generateStudentId = async () => {
     let studentId = INITIAL_STUDENT_ID;
     let isAvailable = false;
 
     while (!isAvailable) {
-      // Check if the student ID is already taken
       const q = query(collection(db, "users"), where("studentId", "==", studentId));
       const querySnapshot = await getDocs(q);
 
       if (querySnapshot.empty) {
         isAvailable = true;
       } else {
-        // Increment student ID
+
         const currentIdNum = parseInt(studentId.split('-')[2], 10);
         const newIdNum = (currentIdNum + 1).toString().padStart(3, '0');
         studentId = `24-0000-${newIdNum}`;
@@ -53,10 +52,9 @@ function Signup() {
         displayName: `${formData.firstName} ${formData.middleName} ${formData.familyName}`
       });
 
-      // Generate unique student ID
       const studentId = await generateStudentId();
 
-      // Save user data to Firestore
+
       await setDoc(doc(db, "users", user.uid), {
         firstName: formData.firstName,
         middleName: formData.middleName,
