@@ -1,0 +1,52 @@
+body{
+  overflow-y: scroll;
+}
+.schedule-container {
+  display: flex;
+  display:flex;
+  justify-content: center;
+
+}
+
+.time-table-container,
+.day-table-container {
+  border: 1px solid #c1c1c1;
+  border-left: none; /* Remove left border to avoid double borders */
+}
+
+.time-table-container {
+  border-left: 1px solid #c1c1c1; /* Only first table has left border */
+}
+
+.time-table,
+.day-table {
+  border-collapse: collapse;
+  background-color: white;
+}
+
+.time-table th,
+.day-table th {
+  background-color: #d3dbe3;
+  color: #000;
+  text-align: center;
+  padding: 10px;
+  border: 1px solid #c1c1c1;
+}
+
+.time-table td,
+.day-table td {
+  border: 1px solid #c1c1c1;
+  height: 60px;
+  text-align: center;
+  width: 80px; /* Fixed width for consistency */
+}
+
+thead th {
+
+  top: 0;
+  z-index: 10;
+}
+
+.schedule-container {
+  gap: 0; /* No gaps between the tables */
+}

@@ -169,7 +169,7 @@ function PersonalInformation() {
                         </div>
                         <div className="info-item">
                           <div className="info-label">Year Level</div>
-                          <select name="yearLevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value">
+                          <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value">
                           <option value="0"></option>
                             <option value="1">1</option>
                             <option value="2">2</option>

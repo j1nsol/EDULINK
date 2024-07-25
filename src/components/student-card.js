@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { db } from '../firebase';
 import './student-card.css';
 
 const StudentInfo = ({ label, value }) => (
@@ -8,14 +11,89 @@ const StudentInfo = ({ label, value }) => (
 );
 
 const StudentCard = () => {
-  const studentData = [
-    { label: "Name", value: "Jez Xyrel K. Olpoc" },
-    { label: "Program", value: "Bachelor of Science in Computer Engineer" },
-    { label: "School Year", value: "2024 - 2025" },
-    { label: "Year Level", value: "Third Year" },
-    { label: "Semester", value: "Second" },
-    { label: "Student ID", value: "22-2024-222" }
-  ];
+  const [studentData, setStudentData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  const auth = getAuth();
+
+  const getSemesterName = (value) => {
+    switch (value) {
+      case "1":
+        return "First Semester";
+      case "2":
+        return "Second Semester";
+      case "3":
+        return "Summer";
+      default:
+        return "Unknown Semester";
+    }
+  };
+
+  const getYearName = (value) => {
+    switch (value) {
+      case "1":
+        return "1st Year";
+      case "2":
+        return "2nd Year";
+      case "3":
+        return "3rd Year";
+        case "4":
+        return "4th Year";
+      case "5":
+        return "5th Year";
+      case "6":
+        return "6th Year";
+      default:
+        return "Super Senior";
+    }
+  };
+
+  useEffect(() => {
+    const fetchStudentData = async () => {
+      try {
+        const user = auth.currentUser;
+        if (user) {
+          const uid = user.uid;
+          const docRef = doc(db, 'users', uid);
+          const docSnap = await getDoc(docRef);
+
+          const schoolYearDoc = doc(db, 'schoolsettings', 'SchoolYear');
+          const schoolYearSnap = await getDoc(schoolYearDoc);
+          const schoolYearData = schoolYearSnap.data();
+
+          const semesterDoc = doc(db, 'schoolsettings', 'term');
+          const semesterSnap = await getDoc(semesterDoc);
+          const semesterData = semesterSnap.data();
+
+          if (docSnap.exists()) {
+            const data = docSnap.data();
+            setStudentData([
+              { label: "Name", value: `${data.firstName} ${data.middleName[0]}. ${data.familyName}` },
+              { label: "Program", value: data.program },
+              { label: "School Year", value: schoolYearData.value },
+              { label: "Year Level", value: getYearName(data.yearlevel) },
+              { label: "Semester", value: getSemesterName(semesterData.value) },
+              { label: "Student ID", value: data.studentId }
+            ]);
+          } else {
+            console.log("No such document!");
+          }
+        } else {
+          console.log("No user is signed in.");
+        }
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchStudentData();
+  }, [auth]);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <section className="student-card">
