@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { doc, setDoc, getDoc } from "firebase/firestore";
-import { auth, db } from '../firebase';
+import { doc, setDoc, getDoc } from 'firebase/firestore';
+import { auth, db, storage } from '../firebase';
+import { ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 import Sidebar from '../components/sidebar';
 import './StudentProfile.css';
 
@@ -13,7 +14,7 @@ function PersonalInformation() {
     classification: '',
     department: '',
     program: '',
-    programcode : '',
+    programcode: '',
     yearlevel: '',
     dateOfBirth: '',
     placeOfBirth: '',
@@ -27,6 +28,7 @@ function PersonalInformation() {
     province: '',
     municipalityCity: '',
     zipCode: '',
+    profileImageUrl: '', // Added to store profile image URL
   });
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState('');
@@ -35,7 +37,7 @@ function PersonalInformation() {
     const fetchData = async () => {
       const user = auth.currentUser;
       if (user) {
-        const docRef = doc(db, "users", user.uid);
+        const docRef = doc(db, 'users', user.uid);
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           setFormData(docSnap.data());
@@ -92,14 +94,37 @@ function PersonalInformation() {
       }
 
       try {
-        await setDoc(doc(db, "users", user.uid), formData);
+        // Upload image to Firebase Storage
+        if (profileImage) {
+          const imageRef = ref(storage, `profileImages/${user.uid}`);
+          const uploadTask = uploadBytesResumable(imageRef, profileImage);
+
+          uploadTask.on(
+            'state_changed',
+            (snapshot) => {
+              // Progress monitoring (optional)
+            },
+            (error) => {
+              console.error('Error uploading image:', error);
+            },
+            async () => {
+              // Get the image URL and save it to Firestore
+              const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
+              setFormData(prevState => ({ ...prevState, profileImageUrl: downloadURL }));
+              await setDoc(doc(db, 'users', user.uid), { ...formData, profileImageUrl: downloadURL });
+            }
+          );
+        } else {
+          // Save data without image if no image is selected
+          await setDoc(doc(db, 'users', user.uid), formData);
+        }
+
         console.log('Data saved successfully');
       } catch (error) {
         console.error('Error saving data:', error);
       }
     }
   };
-
   return (
     <div>
       <Sidebar />
@@ -115,10 +140,10 @@ function PersonalInformation() {
                   <div className="info-row">
                     <div className="info-grid">
                       <div className="info-group">
-                        <div className="profile-image-wrapper">
+                      <div className="profile-image-wrapper">
                           <img
                             loading="lazy"
-                            src={imagePreviewUrl || "https://cdn.builder.io/api/v1/image/assets/TEMP/06632949bef9bc4dbed8293b071d72f3d69aaa4adaa997f630ff734eae92504c?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212&"}
+                            src={imagePreviewUrl || formData.profileImageUrl || "https://cdn.builder.io/api/v1/image/assets/TEMP/06632949bef9bc4dbed8293b071d72f3d69aaa4adaa997f630ff734eae92504c?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212&"}
                             className="profile-image"
                             alt="profile picture"
                           />

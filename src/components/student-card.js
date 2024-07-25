@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { db } from '../firebase';
 import './student-card.css';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage, auth } from '../firebase';
+
 
 const StudentInfo = ({ label, value }) => (
   <p className="student-info">
@@ -12,6 +14,7 @@ const StudentInfo = ({ label, value }) => (
 
 const StudentCard = () => {
   const [studentData, setStudentData] = useState([]);
+  const [profileImageUrl, setProfileImageUrl] = useState('');
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -76,6 +79,9 @@ const StudentCard = () => {
               { label: "Semester", value: getSemesterName(semesterData.value) },
               { label: "Student ID", value: data.studentId }
             ]);
+            const storageRef = ref(storage, `profileImages/${uid}`);
+            const imageUrl = await getDownloadURL(storageRef);
+            setProfileImageUrl(imageUrl);
           } else {
             console.log("No such document!");
           }
@@ -98,7 +104,7 @@ const StudentCard = () => {
   return (
     <section className="student-card">
       <img 
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/910b2e45243cd2181df9989210119c67d43c2c5e2c6a3090da1cbd6d74bf4365?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212&&apiKey=a38f3cba0a6b4fdbabbbee8891d4e212" 
+        src={profileImageUrl || "https://cdn.builder.io/api/v1/image/assets/TEMP/910b2e45243cd2181df9989210119c67d43c2c5e2c6a3090da1cbd6d74bf4365?apiKey=a38f3cba0a6b4fdbabbbee8891d4e212"} 
         alt="Student profile picture" 
         className="student-image" 
       />
