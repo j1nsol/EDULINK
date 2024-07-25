@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-y: scroll;
 }
 
 /* Container to ensure proper layout */

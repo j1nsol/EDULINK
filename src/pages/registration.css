@@ -13,15 +13,17 @@
   
   .centered-table {
     width: 200px;
-    max-width: 1200px; /* Adjust max-width as needed */
+    max-width: 1000px; /* Adjust max-width as needed */
     border-collapse: collapse;
     margin: 20px 0;
+    transition: width 0.3s ease, height 0.3s ease;
   }
   
   .centered-table th, .centered-table td {
     border: 1px solid #ddd;
     padding: 8px;
     text-align: center;
+    transition: width 0.3s ease, height 0.3s ease;
   }
   
   .centered-table th {
@@ -30,3 +32,101 @@
   .schedulebox {
     width:500px;
   }
+  
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+*, *:before, *:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+table {
+  background: white;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: black;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+div {
+  transition-property: opacity, left, top, height;
+  transition-duration: 3s, 5s;
+}
+
+td {
+  color: black;
+  font-weight: 400;
+  padding: 0.65em 1em;
+  transition: width 0.3s ease, height 0.3s ease;
+}
+.disabled td {
+  color: #4F5F64;
+}
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: whitesmoke;
+}
+
+.button-54 {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #000;
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  transition: width 0.3s ease, height 0.3s ease, padding 0.3s ease;
+}
+
+.button-54:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 0px;
+}
+
+.button-54:disabled {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 0px;
+
+}
+@media (min-width: 768px) {
+  .button-54 {
+    padding: 0.25em 0.75em;
+  } 
+}
+
+.column-id { width: 50px; }
+.column-course-id { width: 100px; }
+.column-year-level { width: 80px; }
+.column-term { width: 80px; }
+.column-subject-code { width: 120px; }
+.column-description { width: 200px; }
+.column-lec-hours { width: 80px; }
+.column-lab-hours { width: 80px; }
+.column-credited-units { width: 120px; }
+.column-contact-hours { width: 150px; }
+.column-schedules { width: 200px; }
+.column-add-subject { width: 150px; }
+
+td{
+  align-items: center;
+}

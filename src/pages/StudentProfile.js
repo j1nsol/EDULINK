@@ -94,7 +94,7 @@ function PersonalInformation() {
 
   return (
     <div>
-      <Sidebar/>
+      <Sidebar></Sidebar>
       <div className="personal-information">
         <form onSubmit={handleSubmit} className="content-wrapper">
           <div className="column-2">
@@ -169,8 +169,7 @@ function PersonalInformation() {
                         </div>
                         <div className="info-item">
                           <div className="info-label">Year Level</div>
-                          <select name="yearLevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value">
-                          <option value="0"></option>
+                          <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value">
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
