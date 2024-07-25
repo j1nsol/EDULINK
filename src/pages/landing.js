@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import Navbar from '../components/navbar';
 import landingpagebg from "../images/landingpagebg.jpg";
@@ -17,6 +18,18 @@ const developers = [
 ];
 
 function Landing() {
+
+  const { hash } = useLocation();
+
+  useEffect(() => {
+    if (hash) {
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  }, [hash]);
+  
   return (
     <div>
       <Navbar />

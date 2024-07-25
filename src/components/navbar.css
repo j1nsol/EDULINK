@@ -4,18 +4,24 @@ body {
 }
 
 .top-bar {
-  position: absolute;
+  position: fixed; /* Fixed positioning to make it float and stick at the top */
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(5, 68, 94, 0.9);
+  background-color: rgba(5, 68, 94, 0.9); /* Increase the alpha value for less transparency */
   z-index: 1000;
+  transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Add a shadow to give the navbar some depth */
+.top-bar {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .div {
   display: flex;
   padding: 10px 20px;
-  background-color: #05445e;
+  background-color: transparent; /* Transparent background for the inner div */
   align-items: center;
   justify-content: space-between;
   gap: 20px;
@@ -29,7 +35,7 @@ body {
   margin: 5px 0;
 }
 
-.div-2,.div-0 {
+.div-2, .div-0 {
   display: flex;
   align-items: center;
   gap: 20px;
@@ -41,7 +47,7 @@ body {
   align-items: center;
   padding: 10px 20px;
   font-family: Poppins, sans-serif;
-  background-color: #05445e;
+  background-color: rgba(5, 68, 94, 0.9); /* Increase the alpha value for less transparency */
   color: #fff;
   border-radius: 15px;
   text-align: center;
@@ -50,7 +56,7 @@ body {
 }
 
 .div-3:hover, .div-4:hover, .div-6:hover, .div-8:hover, .div-10:hover {
-  background-color: #003f5c;
+  background-color: rgba(0, 63, 92, 1); /* Fully opaque on hover */
 }
 
 .div-5, .div-7, .div-9, .div-11 {

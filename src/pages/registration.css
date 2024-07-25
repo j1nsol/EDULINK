@@ -1,8 +1,12 @@
+body{
+  margin-top: 40px;
+  align-items: center;
+}
 .main-container {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin: 0 auto;
+  margin: 10px;
 }
 .table-container {
     display: flex;
@@ -13,7 +17,7 @@
   
   .centered-table {
     width: 200px;
-    max-width: 1200px; /* Adjust max-width as needed */
+    max-width: 1200px;
     border-collapse: collapse;
     margin: 20px 0;
   }

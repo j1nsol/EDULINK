@@ -7,21 +7,21 @@ function Navbar() {
   return (
     <div className="top-bar">
       <div className="div">
-        <Link to="/landing" className="no-underline">
+        <Link to="/#home" className="no-underline">
           <img loading="lazy" src={navbarlogo} className="img" alt="Logo" />
         </Link>
         <div className="div-0">
-          <Link to="/landing" className="no-underline">
+          <Link to="/#home" className="no-underline">
             <div className="div-2">
               <div className="div-3">Home</div>
             </div>
           </Link>
-          <Link to="/landing#courses" className="no-underline">
+          <Link to="/#courses" className="no-underline">
             <div className="div-4">
               <div className="div-5">Courses</div>
             </div>
           </Link>
-          <Link to="/landing#about-us" className="no-underline">
+          <Link to="/#about-us" className="no-underline">
             <div className="div-6">
               <div className="div-7">About us</div>
             </div>
