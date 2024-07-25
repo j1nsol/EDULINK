@@ -6,6 +6,7 @@ import signupbg from "../images/signupbg.png";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth, db } from '../firebase';
 import { doc, setDoc } from "firebase/firestore";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 function Signup() {
   const [formData, setFormData] = useState({
@@ -15,6 +16,8 @@ function Signup() {
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const signUp = async (e) => {
     e.preventDefault();
@@ -35,6 +38,9 @@ function Signup() {
               email: formData.email
             });
             console.log('Data saved successfully');
+
+            // Redirect to login page upon successful registration
+            navigate("/login");
           } catch (error) {
             console.error('Error saving data:', error);
           }

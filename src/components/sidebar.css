@@ -13,7 +13,7 @@
   height: calc(100vh - 20px); /* Full height minus potential margins/padding */
   width: 200px; /* Fixed width */
   box-sizing: border-box; /* Ensure padding is included in the width and height */
-  margin: -30px 15px;
+  margin: 10px 15px;
   position: fixed;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); 
 }

@@ -13,7 +13,7 @@ function CurriculumTable() {
   const [enrolledSubjects, setEnrolledSubjects] = useState([]);
   const [userEnrolledSubjects, setUserEnrolledSubjects] = useState([]);
 
-  // Fetch term value from schoolsettings
+
   useEffect(() => {
     const fetchTermValue = async () => {
       try {
@@ -32,7 +32,7 @@ function CurriculumTable() {
     fetchTermValue();
   }, []);
 
-  // Fetch user's year level
+
   useEffect(() => {
     const fetchUserYearLevel = async () => {
       const user = auth.currentUser;
@@ -60,8 +60,8 @@ function CurriculumTable() {
         const querySnapshot = await getDocs(collection(db, "BSCPE_curriculum"));
         const data = querySnapshot.docs
           .map(doc => ({ id: doc.id, ...doc.data() }))
-          .filter(item => item.term === termValue && item.yearlevel === userYearLevel) // Filter based on term value and user year level
-          .sort((a, b) => parseInt(a.yearlevel) - parseInt(b.yearlevel)); // Sort by YearLevel
+          .filter(item => item.term === termValue && item.yearlevel === userYearLevel) 
+          .sort((a, b) => parseInt(a.yearlevel) - parseInt(b.yearlevel)); 
         setCurriculumData(data);
       } catch (error) {
         console.error("Error fetching curriculum data:", error);
@@ -73,7 +73,7 @@ function CurriculumTable() {
     }
   }, [termValue, userYearLevel]);
 
-  // Fetch sections data
+
   useEffect(() => {
     const fetchSectionsData = async () => {
       try {
@@ -88,7 +88,7 @@ function CurriculumTable() {
     fetchSectionsData();
   }, []);
 
-  // Fetch enrolled subjects
+
   useEffect(() => {
     const fetchEnrolledSubjects = async () => {
       const user = auth.currentUser;
@@ -108,18 +108,18 @@ function CurriculumTable() {
     fetchEnrolledSubjects();
   }, []);
 
-  // Helper function to get sections for a given subject code
+
   const getSectionsForSubject = (subjectCode) => {
     return sectionsData
-      .filter(section => section.SubjectCode === subjectCode) // Adjusted field name
+      .filter(section => section.SubjectCode === subjectCode)
       .map(section => ({
         id: section.id,
         description: section.SectionDescription,
-        sectionCode: section.Section // Added section code
+        sectionCode: section.Section 
       }));
   };
 
-  // Handle section selection
+
   const handleSectionChange = async (subjectCode, sectionCode, sectionDescription) => {
     const user = auth.currentUser;
     if (user) {
@@ -131,7 +131,7 @@ function CurriculumTable() {
           sectionDescription
         });
         console.log('Subject and section added to user’s SubjectEnrolled collection');
-        // Refresh enrolled subjects after adding a new one
+
         const querySnapshot = await getDocs(collection(db, "users", user.uid, "SubjectEnrolled"));
         const enrolled = querySnapshot.docs.map(doc => doc.data());
         setUserEnrolledSubjects(enrolled);
@@ -143,13 +143,12 @@ function CurriculumTable() {
     }
   };
 
-  // Filter out subjects already enrolled by the user
   const filteredCurriculumData = curriculumData.filter(item => !enrolledSubjects.includes(item.subjectcode));
 
   return (
     <body>
-    <div className="main-container-reg">
       <Sidebar/>
+    <div className="main-container-reg">
       <StudentCard/>
       <div className="table-container">
         <h1>Curriculum Table</h1>
@@ -166,7 +165,7 @@ function CurriculumTable() {
               <th>Lab Hours</th>
               <th>Credited Units</th>
               <th>Contact Hours</th>
-              <th>Schedules</th> {/* New column */}
+              <th>Schedules</th> {}
             </tr>
           </thead>
           <tbody>
