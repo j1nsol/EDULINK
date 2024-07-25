@@ -1,5 +1,6 @@
 import React from 'react';
 import './schedule.css';
+import Sidebar from '../components/sidebar';
 
 const generateTimeSlots = () => {
   const timeSlots = [];
@@ -43,6 +44,8 @@ const Schedule = () => {
   const timeSlots = generateTimeSlots();
 
   return (
+    <div>
+      <Sidebar/>
     <div className="schedule-container">
       <div className="time-column">
         <div style={{ height: '18px', border: '1px solid black' }}></div>
@@ -59,6 +62,7 @@ const Schedule = () => {
       {daysOfWeek.map((day, index) => (
         <DaySchedule key={index} day={day} timeSlots={timeSlots} />
       ))}
+    </div>
     </div>
   );
 };

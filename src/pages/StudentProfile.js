@@ -83,6 +83,14 @@ function PersonalInformation() {
     e.preventDefault();
     const user = auth.currentUser;
     if (user) {
+      // Perform validation
+      for (let key in formData) {
+        if (formData[key] === '') {
+          alert(`Please fill in the ${key.replace(/([A-Z])/g, ' $1').toLowerCase()} field`);
+          return;
+        }
+      }
+
       try {
         await setDoc(doc(db, "users", user.uid), formData);
         console.log('Data saved successfully');
@@ -119,11 +127,11 @@ function PersonalInformation() {
                         <div className="column">
                         <div className="info-item">
                           <div className="info-label">Family Name</div>
-                          <input type="text" name="familyName" value={formData.familyName} onChange={handleChange} className="info-value" />
+                          <input type="text" name="familyName" value={formData.familyName} onChange={handleChange} className="info-value" required />
                         </div>
                           <div className="info-item">
                             <div className="info-label">Classification</div>
-                          <select name="classification" value={formData.classification} onChange={handleChange} className="info-value">
+                          <select name="classification" value={formData.classification} onChange={handleChange} className="info-value" required>
                             <option value="Baccalaureate">Baccalaureate</option>
                             <option value="Associate">Associate</option>
                             <option value="Doctorate">Doctorate</option>
@@ -134,11 +142,11 @@ function PersonalInformation() {
                         <div className="column">
                         <div className="info-item">
                           <div className="info-label">First Name</div>
-                          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="info-value" />
+                          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="info-value" required />
                         </div>
                         <div className="info-item">
                           <div className="info-label">Program</div>
-                          <select name="program" value={formData.program} onChange={handleChange} className="info-value">
+                          <select name="program" value={formData.program} onChange={handleChange} className="info-value" required>
                             <option value="BS in Computer Engineering">BS in Computer Engineering</option>
                             <option value="BS in Pharmacy">BS in Pharmacy</option>
                             <option value="BS in Civil Engineering">BS in Civil Engineering</option>
@@ -149,11 +157,11 @@ function PersonalInformation() {
                         <div className="column">
                         <div className="info-item">
                           <div className="info-label">Middle Name</div>
-                            <input type="text" name="middleName" value={formData.middleName} onChange={handleChange} className="info-value" />
+                            <input type="text" name="middleName" value={formData.middleName} onChange={handleChange} className="info-value" required />
                           </div>
                         <div className="info-item">
                           <div className="info-label">Department</div>
-                          <select name="department" value={formData.department} onChange={handleChange} className="info-value">
+                          <select name="department" value={formData.department} onChange={handleChange} className="info-value" required>
                             <option value="Freshman">Freshman</option>
                             <option value="Sophomore">Sophomore</option>
                             <option value="Junior">Junior</option>
@@ -171,7 +179,7 @@ function PersonalInformation() {
                         </div>
                         <div className="info-item">
                           <div className="info-label">Year Level</div>
-                          <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value">
+                          <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value" required>
                           <option value="0"></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -188,51 +196,51 @@ function PersonalInformation() {
                 <div className="info-group">
                   <div className="info-item">
                     <div className="info-label">Date of Birth</div>
-                    <input type="text" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="info-value" />
+                    <input type="text" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Place of Birth</div>
-                    <input type="text" name="placeOfBirth" value={formData.placeOfBirth} onChange={handleChange} className="info-value" />
+                    <input type="text" name="placeOfBirth" value={formData.placeOfBirth} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Age</div>
-                    <input type="text" name="age" value={formData.age} onChange={handleChange} className="info-value" />
+                    <input type="text" name="age" value={formData.age} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Status</div>
-                    <input type="text" name="status" value={formData.status} onChange={handleChange} className="info-value" />
+                    <input type="text" name="status" value={formData.status} onChange={handleChange} className="info-value" required />
                   </div>
                 </div>
                 <div className="info-group">
                   <div className="info-item">
                     <div className="info-label">Religion</div>
-                    <input type="text" name="religion" value={formData.religion} onChange={handleChange} className="info-value" />
+                    <input type="text" name="religion" value={formData.religion} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Mobile Number</div>
-                    <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="info-value" />
+                    <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Citizenship</div>
-                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" />
+                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Zip Code</div>
-                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" />
+                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" required />
                   </div>
                 </div>
                 <div className="info-section">
                   <div className="info-item">
                     <div className="info-label">Address</div>
-                    <input type="text" name="address" value={formData.address} onChange={handleChange} className="info-value" />
+                    <input type="text" name="address" value={formData.address} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Province</div>
-                    <input type="text" name="province" value={formData.province} onChange={handleChange} className="info-value" />
+                    <input type="text" name="province" value={formData.province} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Municipality/City</div>
-                    <input type="text" name="municipalityCity" value={formData.municipalityCity} onChange={handleChange} className="info-value" />
+                    <input type="text" name="municipalityCity" value={formData.municipalityCity} onChange={handleChange} className="info-value" required />
                   </div>
                 </div>
                 <div className="info-section">
