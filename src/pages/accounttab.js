@@ -10,30 +10,65 @@ function Accounttab() {
   const [curriculumData, setCurriculumData] = useState({});
   const [tuitionPerHour, setTuitionPerHour] = useState(0);
   const [totalTuition, setTotalTuition] = useState(0);
-  const [schoolYear, setSchoolYear] = useState("2023-2024"); // Example value
-  const [termValue, setTermValue] = useState("1"); // Example value
+  const [schoolYear, setSchoolYear] = useState("");
+  const [termValue, setTermValue] = useState("");
+
+  useEffect(() => {
+    const fetchterm = async () => {
+      try {
+        const docRef = doc(db, "schoolsettings", "term");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setTermValue(data.value); 
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.log("Error fetching school settings:", error);
+      }
+    };
+
+    fetchterm();
+
+
+    const fetchSchoolSettings = async () => {
+      try {
+        const docRef = doc(db, "schoolsettings", "SchoolYear");
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          setSchoolYear(data.value); 
+        } else {
+          console.log("No such document!");
+        }
+      } catch (error) {
+        console.log("Error fetching school settings:", error);
+      }
+    };
+
+    fetchSchoolSettings();
+  }, []);
 
   useEffect(() => {
     const fetchEnrolledSubjects = async () => {
       const user = auth.currentUser;
       if (user) {
         try {
-          // Fetch user data
+
           const userDocRef = doc(db, "users", user.uid);
           const userDocSnap = await getDoc(userDocRef);
           const userData = userDocSnap.data();
           setUserProgramCode(userData.programcode);
 
-          // Construct the collection name based on schoolYear and termValue
           const collectionName = `${schoolYear}_${termValue}_SubjectEnrolled`;
 
-          // Fetch enrolled subjects
+
           const subjectsCollectionRef = collection(db, "users", user.uid, collectionName);
           const querySnapshot = await getDocs(subjectsCollectionRef);
           const enrolledSubjects = querySnapshot.docs.map(doc => doc.data());
           setUserEnrolledSubjects(enrolledSubjects);
 
-          // Fetch curriculum data for contact hours and subject descriptions
           const curriculumCollectionRef = collection(db, `${userData.programcode}_Curriculum`);
           const curriculumSnapshot = await getDocs(curriculumCollectionRef);
           const curriculum = {};
@@ -42,7 +77,6 @@ function Accounttab() {
           });
           setCurriculumData(curriculum);
 
-          // Fetch tuition per hour
           const schoolSettingsDocRef = doc(db, "schoolsettings", "TuitionPerHour"); // Adjust path if needed
           const schoolSettingsDocSnap = await getDoc(schoolSettingsDocRef);
           const schoolSettingsData = schoolSettingsDocSnap.data();
@@ -105,14 +139,12 @@ function Accounttab() {
     const user = auth.currentUser;
     if (user) {
       try {
-        // Construct the collection name based on schoolYear and termValue
-        const collectionName = `${schoolYear}_${termValue}_Assessment`;
-
-        // Create a new document in the collection
+        const collectionName = `Assessment`;
         const assessmentDocRef = collection(db, "users", user.uid, collectionName);
         await addDoc(assessmentDocRef, {
           totalTuition,
-          // Add other necessary fields here
+          schoolYear,
+          termValue,
         });
 
         // Optionally, you can redirect the user or provide feedback
