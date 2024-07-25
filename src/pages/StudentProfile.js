@@ -99,7 +99,9 @@ function PersonalInformation() {
         <form onSubmit={handleSubmit} className="content-wrapper">
           <div className="column-2">
             <div className="info-container">
+            <div className="section-header-box">
               <div className="header">PERSONAL INFORMATION</div>
+              </div>
               <div className="info-content">
                 <div className="info-section">
                   <div className="info-row">
@@ -183,7 +185,7 @@ function PersonalInformation() {
                     </div>
                   </div>
                 </div>
-                <div className="info-section">
+                <div className="info-group">
                   <div className="info-item">
                     <div className="info-label">Date of Birth</div>
                     <input type="text" name="dateOfBirth" value={formData.dateOfBirth} onChange={handleChange} className="info-value" />
@@ -200,12 +202,8 @@ function PersonalInformation() {
                     <div className="info-label">Status</div>
                     <input type="text" name="status" value={formData.status} onChange={handleChange} className="info-value" />
                   </div>
-                  <div className="info-item">
-                    <div className="info-label">Citizenship</div>
-                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" />
-                  </div>
                 </div>
-                <div className="info-section">
+                <div className="info-group">
                   <div className="info-item">
                     <div className="info-label">Religion</div>
                     <input type="text" name="religion" value={formData.religion} onChange={handleChange} className="info-value" />
@@ -213,6 +211,14 @@ function PersonalInformation() {
                   <div className="info-item">
                     <div className="info-label">Mobile Number</div>
                     <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="info-value" />
+                  </div>
+                  <div className="info-item">
+                    <div className="info-label">Citizenship</div>
+                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" />
+                  </div>
+                  <div className="info-item">
+                    <div className="info-label">Zip Code</div>
+                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" />
                   </div>
                 </div>
                 <div className="info-section">
@@ -227,10 +233,6 @@ function PersonalInformation() {
                   <div className="info-item">
                     <div className="info-label">Municipality/City</div>
                     <input type="text" name="municipalityCity" value={formData.municipalityCity} onChange={handleChange} className="info-value" />
-                  </div>
-                  <div className="info-item">
-                    <div className="info-label">Zip Code</div>
-                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" />
                   </div>
                 </div>
                 <div className="info-section">
