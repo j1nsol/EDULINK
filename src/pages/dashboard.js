@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/sidebar";
+import StudentCard from "../components/student-card";
 import './dashboard.css';
 
 const Dashboard = () => {
@@ -17,11 +18,12 @@ const Dashboard = () => {
           .catch((error) => console.log(error));
         }
   return (
-    
-    <div>
-        <Sidebar></Sidebar>
+    <body>
+      <Sidebar/>
+      <div>
+        <StudentCard/>
     </div>
-    
+    </body>   
   )
 }
 

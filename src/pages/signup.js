@@ -120,8 +120,8 @@ function Signup() {
                   />
                   <button className="registerbutton" type="submit">Register</button>
                   <div className="signupplaceholder">
-                    <div className="haveanaccount">Already have an account?</div>
-                    <div className="logintext"><Link to="/login">Login</Link></div>
+                    <div className="bottom-text">Already have an account?</div>
+                    <div className="bottom-text"><Link to="/login">Login</Link></div>
                   </div>
                 </div>
               </form>
