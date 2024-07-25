@@ -1,7 +1,25 @@
-.dashboardcolumn {
-    display: flex;
-    flex-direction: column;
-    line-height: normal;
-    width: 46%;
-    margin-left: 0px;
-  }
+.dashboard-container {
+  display: flex;
+  height: 100vh; 
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; 
+  padding: 20px;
+}
+
+.container-dashboard {
+  width: calc(100% - 260px);
+  height: calc(100% - 50px);
+  margin: 20px;
+  border-radius: 20px;
+  background-color: rgba(212, 241, 244, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 250px;
+}

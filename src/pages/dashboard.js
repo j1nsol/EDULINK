@@ -1,5 +1,5 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
+import { signOut } from "firebase/auth";
+import React from "react";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import Sidebar from "../components/sidebar";
@@ -16,15 +16,19 @@ const Dashboard = () => {
             navigate("/");
           })
           .catch((error) => console.log(error));
-        }
-  return (
-    <body>
-      <Sidebar/>
-      <div>
-        <StudentCard/>
-    </div>
-    </body>   
-  )
+    };
+
+    return (
+        <div className="dashboard-container">
+            <Sidebar />
+            <div className="main-content">
+                <StudentCard />
+                <div className="container-dashboard">
+                    {/* Add your dashboard content here */}
+                </div>
+            </div>
+        </div>
+    );
 }
 
-export default Dashboard
+export default Dashboard;

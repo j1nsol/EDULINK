@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from "react-router-dom";
 import { collection, getDocs, doc, getDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import './registration.css';
@@ -408,7 +409,7 @@ function CurriculumTable() {
               ))}
             </tbody>
           </table>
-          <button>ASSESS</button>
+          <button><Link to ="/student/account">ASSESS</Link></button>
         </div>
       </div>
     </body>
