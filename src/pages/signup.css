@@ -1,256 +1,179 @@
-
-
 .frame {
-      justify-content: center;
-      align-items: center;
-      background-color: #fff;
-      display: flex;
-      padding: 100px 60px;
-    }
-    @media (max-width: 991px) {
-      .div {
-        padding: 0 20px;
-      }
-    }
-    .signupph1 {
-      border-radius: 20px;
-      border-color: rgba(0, 0, 0, 1);
-      border-style: solid;
-      border-width: 1px;
-      width: 648px;
-      max-width: 100%;
-      padding: 0 20px 0 1px;
-    }
-    @media (max-width: 991px) {
-      .signupph1 {
-        padding-right: 20px;
-      }
-    }
-    .signupph2 {
-      gap: 20px;
-      display: flex;
-    }
-    @media (max-width: 991px) {
-      .signupph2 {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0px;
-      }
-    }
-    .imageContainer {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 50%;
-      margin-left: 0px;
-    }
-    @media (max-width: 991px) {
-      .imageContainer {
-        width: 100%;
-      }
-    }
-    .imagelogin {
-      aspect-ratio: 0.68;
-      object-fit: fill;
-      object-position: center;
-      width: 100%;
-      flex-grow: 1;
-      border-top-left-radius: 18px;
-      border-bottom-left-radius: 18px;
-      inset: 0;
-      margin-left: -1px
-    }
-    @media (max-width: 991px) {
-      .imagelogin {
-        margin-top: 26px;
-      }
-    }
-    .signupcolumn2 {
-      display: flex;
-      flex-direction: column;
-      line-height: normal;
-      width: 50%;
-      margin-left: 0px;
-    }
-    @media (max-width: 991px) {
-      .signupcolumn2 {
-        width: 100%;
-      }
-    }
-    .Framer {
-      display: flex;
-      margin-top: 8px;
-      flex-direction: column;
-      font-size: 16px;
-      color: #05445e;
-      font-weight: 400;
-    }
-    @media (max-width: 991px) {
-      .Framer {
-        margin-top: 34px;
-      }
-    }
-    .Firstnamelabel {
-      font-family: Inter, sans-serif;
-      line-height: 140%;
-    }
-    .fnamevalue {
-      font-family: Inter, sans-serif;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: var(--sds-color-background-default-default);
-      margin-top: 8px;
-      color: var(--sds-color-text-default-tertiary);
-      white-space: nowrap;
-      line-height: 100%;
-      justify-content: center;
-      padding: 12px 16px;
-    }
-    @media (max-width: 991px) {
-      .fnamevalue {
-        white-space: initial;
-      }
-    }
-    .Middlenamelabel {
-      font-family: Inter, sans-serif;
-      line-height: 140%;
-      margin-top: 5px;
-    }
-    .mnamevalue {
-      font-family: Inter, sans-serif;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: var(--sds-color-background-default-default);
-      margin-top: 8px;
-      color: var(--sds-color-text-default-tertiary);
-      white-space: nowrap;
-      line-height: 100%;
-      justify-content: center;
-      padding: 12px 16px;
-    }
-    @media (max-width: 991px) {
-      .mnamevalue {
-        white-space: initial;
-      }
-    }
-    .Lastnamelabel {
-      font-family: Inter, sans-serif;
-      line-height: 140%;
-      margin-top: 5px;
-    }
-    .lastnamevalue {
-      font-family: Inter, sans-serif;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: var(--sds-color-background-default-default);
-      margin-top: 8px;
-      color: var(--sds-color-text-default-tertiary);
-      white-space: nowrap;
-      line-height: 100%;
-      justify-content: center;
-      padding: 12px 16px;
-    }
-    @media (max-width: 991px) {
-      .lastnamevalue {
-        white-space: initial;
-      }
-    }
-    .Emaillabel {
-      font-family: Inter, sans-serif;
-      line-height: 140%;
-      margin-top: 5px;
-    }
-    .emailvalue {
-      font-family: Inter, sans-serif;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: var(--sds-color-background-default-default);
-      margin-top: 8px;
-      color: var(--sds-color-text-default-tertiary);
-      white-space: nowrap;
-      line-height: 100%;
-      justify-content: center;
-      padding: 12px 16px;
-    }
-    @media (max-width: 991px) {
-      .emailvalue {
-        white-space: initial;
-      }
-    }
-    .Passwordlabel {
-      font-family: Inter, sans-serif;
-      line-height: 140%;
-      margin-top: 5px;
-    }
-    .passwordvalue {
-      font-family: Inter, sans-serif;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: var(--sds-color-background-default-default);
-      margin-top: 8px;
-      color: var(--sds-color-text-default-tertiary);
-      white-space: nowrap;
-      line-height: 100%;
-      justify-content: center;
-      padding: 12px 16px;
-    }
-    @media (max-width: 991px) {
-      .passwordvalue {
-        white-space: initial;
-      }
-    }
-    .registerbutton {
-      font-family: Poppins, sans-serif;
-      justify-content: center;
-      align-items: center;
-      border-radius: 15px;
-      border-color: rgba(5, 68, 94, 1);
-      border-style: solid;
-      border-width: 1px;
-      background-color: #05445e;
-      margin-top: 12px;
-      color: #f5f5f5;
-      white-space: nowrap;
-      line-height: 100%;
-      padding: 12px;
-    }
-    @media (max-width: 991px) {
-      .registerbutton {
-        white-space: initial;
-        padding: 0 20px;
-      }
-    }
-    .signupplaceholder {
-      display: flex;
-      gap: 1px;
-      font-size: 14px;
-      font-weight: 500;
-      margin: 8px 26px 0;
-    }
-    @media (max-width: 991px) {
-      .signupplaceholder {
-        margin: 0 10px;
-      }
-    }
-    .haveanaccount {
-      font-family: Poppins, sans-serif;
-      line-height: 150%;
-      letter-spacing: -0.27px;
-      flex-grow: 1;
-    }
-    .logintext {
-      font-family: Poppins, sans-serif;
-      line-height: 229%;
-      text-decoration-line: underline;
-      margin-bottom: auto;
-    }
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  display: flex;
+  padding: 100px 60px;
+}
+
+@media (max-width: 991px) {
+  .frame {
+    padding: 0 20px;
+  }
+}
+
+.signupph1 {
+  border-radius: 20px;
+  border-color: rgba(0, 0, 0, 1);
+  border-width: 1px;
+  width: 648px;
+  max-width: 100%;
+  padding: 0 20px 0 1px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); 
+}
+
+@media (max-width: 991px) {
+  .signupph1 {
+    padding-right: 20px;
+  }
+}
+
+.signupph2 {
+  gap: 20px;
+  display: flex;
+}
+
+@media (max-width: 991px) {
+  .signupph2 {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0px;
+  }
+}
+
+.imageContainer {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0px;
+}
+
+@media (max-width: 991px) {
+  .imageContainer {
+    width: 100%;
+  }
+}
+
+.imagelogin {
+  aspect-ratio: 0.68;
+  object-fit: fill;
+  object-position: center;
+  width: 100%;
+  flex-grow: 1;
+  border-top-left-radius: 18px;
+  border-bottom-left-radius: 18px;
+  margin-left: -1px;
+}
+
+@media (max-width: 991px) {
+  .imagelogin {
+    margin-top: 26px;
+  }
+}
+
+.signupcolumn2 {
+  display: flex;
+  flex-direction: column;
+  line-height: normal;
+  width: 50%;
+  margin-left: 0px;
+}
+
+@media (max-width: 991px) {
+  .signupcolumn2 {
+    width: 100%;
+  }
+}
+
+.Framer {
+  display: flex;
+  margin-top: 8px;
+  flex-direction: column;
+  font-size: 16px;
+  color: #05445e;
+  font-weight: 400;
+}
+
+@media (max-width: 991px) {
+  .Framer {
+    margin-top: 34px;
+  }
+}
+
+.Firstnamelabel, .Middlenamelabel, .Lastnamelabel, .Emaillabel, .Passwordlabel {
+  font-family: Inter, sans-serif;
+  line-height: 140%;
+  margin-top: 5px;
+}
+
+.fnamevalue, .mnamevalue, .lastnamevalue, .emailvalue, .passwordvalue {
+  font-family: Inter, sans-serif;
+  border-radius: 15px;
+  border-color: rgba(5, 68, 94, 1);
+  border-style: solid;
+  border-width: 1px;
+  background-color: var(--sds-color-background-default-default);
+  margin-top: 8px;
+  color: var(--sds-color-text-default-tertiary);
+  white-space: nowrap;
+  line-height: 100%;
+  justify-content: center;
+  padding: 12px 16px;
+}
+
+@media (max-width: 991px) {
+  .fnamevalue, .mnamevalue, .lastnamevalue, .emailvalue, .passwordvalue {
+    white-space: initial;
+  }
+}
+
+.registerbutton {
+  font-family: Poppins, sans-serif;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  border-color: rgba(5, 68, 94, 1);
+  border-style: solid;
+  border-width: 1px;
+  background-color: #05445e;
+  margin-top: 12px;
+  color: #f5f5f5;
+  white-space: nowrap;
+  line-height: 100%;
+  padding: 12px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.registerbutton:hover {
+  background-color: #043c53;
+  transform: scale(1.05);
+}
+
+@media (max-width: 991px) {
+  .registerbutton {
+    white-space: initial;
+    padding: 0 20px;
+  }
+}
+
+.signupplaceholder {
+  display: flex;
+  gap: 75px;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 9px 0;
+}
+
+@media (max-width: 991px) {
+  .signupplaceholder {
+    margin: 0 10px;
+  }
+}
+
+.bottom-text {
+  font-family: Poppins, sans-serif;
+  line-height: 150%;
+  letter-spacing: -0.27px;
+  flex-grow: 1;
+}

@@ -1,7 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-function NavItem({ label, isActive, to }) {
+function NavItem({ label, to }) {
+  const location = useLocation();
+  const isActive = location.pathname === to;
+
   return (
     <Link to={to} className={`nav-item ${isActive ? 'active' : ''}`}>
       <div className="nav-label">{label}</div>

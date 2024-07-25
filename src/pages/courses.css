@@ -1,0 +1,34 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: white;
+  margin: 0;
+  overflow: hidden;
+}
+
+.course-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#image-track > .image {
+  width: 50vmin;
+  height: 48vmin;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+#image-track {
+  display: flex;
+  gap: 10vmin;
+  position: relative;
+  top: 10%;
+  left: 50%;
+  transform: translate(0%, -50%);
+  transition: transform 1s ease;
+}

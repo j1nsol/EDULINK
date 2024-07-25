@@ -1,0 +1,60 @@
+.student-card {
+    border-radius: 20px;
+    background-color: #189ab4;
+    display: flex;
+    gap: 20px;
+    font-size: 16px;
+    color: #fff;
+    font-weight: 600;
+    padding: 18px 80px 18px 34px;
+    margin-left: 250px;
+    margin-top: 80px;
+    margin-right:20px;
+  }
+  
+  .student-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .student-details {
+    display: flex;
+    gap: 20px;
+    flex-grow: 1;
+    margin: auto 0;
+  }
+  
+  .info-column {
+    display: flex;
+    flex-direction: column;
+    line-height: 18px;
+    flex-grow: 1;
+    flex-basis: 0;
+  }
+  
+  .student-info {
+    font-family: Poppins, sans-serif;
+    font-feature-settings: "clig" off, "liga" off;
+    margin: 0;
+  }
+  
+  .info-label {
+    font-weight: bold;
+  }
+  
+  @media (max-width: 991px) {
+    .student-card {
+      flex-wrap: wrap;
+      padding: 18px 20px;
+    }
+  
+    .student-details {
+      flex-wrap: wrap;
+    }
+  
+    .info-column {
+      max-width: 100%;
+    }
+  }
