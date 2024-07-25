@@ -346,7 +346,7 @@ function CurriculumTable() {
                         handleSectionChange(item.subjectcode, section.sectionCode, section.description);
                         setSelectedSchedule(prev => ({
                           ...prev,
-                          [item.id]: null // Reset selected schedule for this row
+                          [item.id]: null 
                         }));
                       }
                     }}
@@ -376,7 +376,7 @@ function CurriculumTable() {
                 <td>
                   <input
                     type="checkbox"
-                    checked={true} // Checkbox should always be checked for enrolled subjects
+                    checked={true} 
                     onChange={(e) => handleCheckboxChange(subject.subjectCode, !e.target.checked)}
                   />
                 </td>

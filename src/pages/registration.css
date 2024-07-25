@@ -12,7 +12,8 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-left: 300px;
+    margin-left: 200px;
+    overflow-x:auto ; 
   }
   
   .centered-table {
@@ -34,7 +35,7 @@ body{
     background-color: #f2f2f2;
   }
   .schedulebox {
-    width:500px;
+    width:270px;
   }
   
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
