@@ -1,45 +1,45 @@
 .sidebar {
-    border-radius: 20px;
-    background-color: #05445e;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 20px;
-    color: #fff;
-    font-weight: 500;
-    text-align: center;
-    line-height: 160%;
-    padding: 29px 20px;
-    height: calc(100vh - 20px); /* Full height minus potential margins/padding */
-    width: 200px; /* Fixed width */
-    box-sizing: border-box; /* Ensure padding is included in the width and height */
-    margin: -30px 15px;
-    position: fixed;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-  }
-  .nav-items {
-    flex-grow: 1;
-  }
-  .logo {
-    aspect-ratio: 1.19;
-    object-fit: auto;
-    object-position: center;
-    width: 100%;
-    align-self: center;
-  }
-  .signup-button {
-    cursor: pointer; /* Ensures the entire area of the button is clickable */
-    text-decoration: none;
-    color: inherit;
-    border-radius: 18px;
-    background-color: #05445e;
-    justify-content: center;
-    padding: 13px 20px;
-    display: flex;
-    align-items: center;
-    margin-top: 10px;
-  }
-  .signup-button:hover {
-    background-color: #fff;
-    color: #05445e;
-  }
+  border-radius: 20px;
+  background-color: #05445e;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #fff;
+  font-weight: 500;
+  text-align: center;
+  line-height: 160%;
+  padding: 29px 20px;
+  height: calc(100vh - 20px); /* Full height minus potential margins/padding */
+  width: 200px; /* Fixed width */
+  box-sizing: border-box; /* Ensure padding is included in the width and height */
+  margin: -30px 15px;
+  position: fixed;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); 
+}
+.nav-items {
+  flex-grow: 1;
+}
+.logo {
+  aspect-ratio: 1.19;
+  object-fit: auto;
+  object-position: center;
+  width: 100%;
+  align-self: center;
+}
+.signup-button {
+  cursor: pointer; /* Ensures the entire area of the button is clickable */
+  text-decoration: none;
+  color: inherit;
+  border-radius: 18px;
+  background-color: #05445e;
+  justify-content: center;
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+.signup-button:hover {
+  background-color: #fff;
+  color: #05445e;
+}

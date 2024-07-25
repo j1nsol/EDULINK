@@ -14,6 +14,7 @@ body {
   height: auto;
   background-color: var(--Grays-White, #fff);
   grid-template-areas: "textContent imageContent"; 
+  margin-top: 85px;
 }
 
 @media (max-width: 991px) {
