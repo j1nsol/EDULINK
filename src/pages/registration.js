@@ -3,6 +3,7 @@ import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore';
 import { db, auth } from '../firebase';
 import './registration.css';
 import Sidebar from '../components/sidebar';
+import StudentCard from '../components/student-card';
 
 function CurriculumTable() {
   const [curriculumData, setCurriculumData] = useState([]);
@@ -149,6 +150,7 @@ function CurriculumTable() {
     <body>
     <div className="main-container-reg">
       <Sidebar/>
+      <StudentCard/>
       <div className="table-container">
         <h1>Curriculum Table</h1>
         <table className="centered-table">
