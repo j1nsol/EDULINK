@@ -102,19 +102,19 @@ function PersonalInformation() {
 
   return (
     <div>
-      <Sidebar/>
+      <Sidebar />
       <div className="personal-information">
         <form onSubmit={handleSubmit} className="content-wrapper">
           <div className="column-2">
             <div className="info-container">
-            <div className="section-header-box">
-              <div className="header">PERSONAL INFORMATION</div>
+              <div className="section-header-box">
+                <div className="header">PERSONAL INFORMATION</div>
               </div>
               <div className="info-content">
                 <div className="info-section">
                   <div className="info-row">
                     <div className="info-grid">
-                      <div className="info-group">  
+                      <div className="info-group">
                         <div className="profile-image-wrapper">
                           <img
                             loading="lazy"
@@ -122,74 +122,75 @@ function PersonalInformation() {
                             className="profile-image"
                             alt="profile picture"
                           />
-                          <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" />
-                        </div>                     
-                        <div className="column">
-                        <div className="info-item">
-                          <div className="info-label">Family Name</div>
-                          <input type="text" name="familyName" value={formData.familyName} onChange={handleChange} className="info-value" required />
+                          <input type="file" accept="image/*" onChange={handleImageChange} className="file-input" id="file-input" />
+                          <label htmlFor="file-input" className="upload-button">Upload Image</label>
                         </div>
+                        <div className="column">
+                          <div className="info-item">
+                            <div className="info-label">Family Name</div>
+                            <input type="text" name="familyName" value={formData.familyName} onChange={handleChange} className="info-value" required />
+                          </div>
                           <div className="info-item">
                             <div className="info-label">Classification</div>
-                          <select name="classification" value={formData.classification} onChange={handleChange} className="info-value" required>
-                            <option value="Baccalaureate">Baccalaureate</option>
-                            <option value="Associate">Associate</option>
-                            <option value="Doctorate">Doctorate</option>
-                            <option value="Master's Degree">Master's Degree</option>
-                          </select>
-                        </div>
-                        </div>
-                        <div className="column">
-                        <div className="info-item">
-                          <div className="info-label">First Name</div>
-                          <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="info-value" required />
-                        </div>
-                        <div className="info-item">
-                          <div className="info-label">Program</div>
-                          <select name="program" value={formData.program} onChange={handleChange} className="info-value" required>
-                            <option value="BS in Computer Engineering">BS in Computer Engineering</option>
-                            <option value="BS in Pharmacy">BS in Pharmacy</option>
-                            <option value="BS in Civil Engineering">BS in Civil Engineering</option>
-                          </select>
-                        </div>
-                          
+                            <select name="classification" value={formData.classification} onChange={handleChange} className="info-value" required>
+                              <option value="Baccalaureate">Baccalaureate</option>
+                              <option value="Associate">Associate</option>
+                              <option value="Doctorate">Doctorate</option>
+                              <option value="Master's Degree">Master's Degree</option>
+                            </select>
+                          </div>
                         </div>
                         <div className="column">
-                        <div className="info-item">
-                          <div className="info-label">Middle Name</div>
+                          <div className="info-item">
+                            <div className="info-label">First Name</div>
+                            <input type="text" name="firstName" value={formData.firstName} onChange={handleChange} className="info-value" required />
+                          </div>
+                          <div className="info-item">
+                            <div className="info-label">Program</div>
+                            <select name="program" value={formData.program} onChange={handleChange} className="info-value" required>
+                              <option value="BS in Computer Engineering">BS in Computer Engineering</option>
+                              <option value="BS in Pharmacy">BS in Pharmacy</option>
+                              <option value="BS in Civil Engineering">BS in Civil Engineering</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div className="column">
+                          <div className="info-item">
+                            <div className="info-label">Middle Name</div>
                             <input type="text" name="middleName" value={formData.middleName} onChange={handleChange} className="info-value" required />
                           </div>
-                        <div className="info-item">
-                          <div className="info-label">Department</div>
-                          <select name="department" value={formData.department} onChange={handleChange} className="info-value" required>
-                            <option value="Freshman">Freshman</option>
-                            <option value="Sophomore">Sophomore</option>
-                            <option value="Junior">Junior</option>
-                            <option value="Senior">Senior</option>
-                            <option value="Super Senior">Super Senior</option>
-                            <option value="Legendary Senior">Legendary Senior</option>
-                            <option value="Mythical Senior">Mythical Senior</option>
-                          </select>
-                        </div>
+                          <div className="info-item">
+                            <div className="info-label">Department</div>
+                            <select name="department" value={formData.department} onChange={handleChange} className="info-value" required>
+                              <option value="Freshman">Freshman</option>
+                              <option value="Sophomore">Sophomore</option>
+                              <option value="Junior">Junior</option>
+                              <option value="Senior">Senior</option>
+                              <option value="Super Senior">Super Senior</option>
+                              <option value="Legendary Senior">Legendary Senior</option>
+                              <option value="Mythical Senior">Mythical Senior</option>
+                            </select>
+                          </div>
                         </div>
                         <div className="column">
-                        <div className="info-item">
-                          <div className="info-label">Suffix</div>
-                          <input type="text" name="suffix" value={formData.suffix} onChange={handleChange} className="small-info-value" />
+                          <div className="info-item">
+                            <div className="info-label">Suffix</div>
+                            <input type="text" name="suffix" value={formData.suffix} onChange={handleChange} className="small-info-value" />
+                          </div>
+                          <div className="info-item">
+                            <div className="info-label">Year Level</div>
+                            <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value" required>
+                              <option value="0"></option>
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                              <option value="4">4</option>
+                              <option value="5">5</option>
+                              <option value="6">6</option>
+                            </select>
+                          </div>
                         </div>
-                        <div className="info-item">
-                          <div className="info-label">Year Level</div>
-                          <select name="yearlevel" value={formData.yearlevel} onChange={handleChange} className="small-info-value" required>
-                          <option value="0"></option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                          </select>
-                        </div>
-                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -208,10 +209,17 @@ function PersonalInformation() {
                   </div>
                   <div className="info-item">
                     <div className="info-label">Status</div>
-                    <input type="text" name="status" value={formData.status} onChange={handleChange} className="info-value" required />
+                    <select name="status" value={formData.status} onChange={handleChange} className="info-value" required>
+                      <option value="Single">Single</option>
+                      <option value="Married">Married</option>
+                      <option value="Divorced">Divorced</option>
+                      <option value="Widowed">Widowed</option>
+                    </select>
                   </div>
-                </div>
-                <div className="info-group">
+                  <div className="info-item">
+                    <div className="info-label">Citizenship</div>
+                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" required />
+                  </div>
                   <div className="info-item">
                     <div className="info-label">Religion</div>
                     <input type="text" name="religion" value={formData.religion} onChange={handleChange} className="info-value" required />
@@ -221,15 +229,9 @@ function PersonalInformation() {
                     <input type="text" name="mobileNumber" value={formData.mobileNumber} onChange={handleChange} className="info-value" required />
                   </div>
                   <div className="info-item">
-                    <div className="info-label">Citizenship</div>
-                    <input type="text" name="citizenship" value={formData.citizenship} onChange={handleChange} className="info-value" required />
+                    <div className="info-label">Email Address</div>
+                    <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleChange} className="info-value" required />
                   </div>
-                  <div className="info-item">
-                    <div className="info-label">Zip Code</div>
-                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" required />
-                  </div>
-                </div>
-                <div className="info-section">
                   <div className="info-item">
                     <div className="info-label">Address</div>
                     <input type="text" name="address" value={formData.address} onChange={handleChange} className="info-value" required />
@@ -242,13 +244,14 @@ function PersonalInformation() {
                     <div className="info-label">Municipality/City</div>
                     <input type="text" name="municipalityCity" value={formData.municipalityCity} onChange={handleChange} className="info-value" required />
                   </div>
+                  <div className="info-item">
+                    <div className="info-label">Zip Code</div>
+                    <input type="text" name="zipCode" value={formData.zipCode} onChange={handleChange} className="info-value" required />
+                  </div>
                 </div>
-                <div className="info-section">
-                  <button type="submit" className="submit-button">Submit</button>
-                </div>
+                <button type="submit" className="save-button">Save</button>
               </div>
             </div>
-          </div>
           </div>
         </form>
       </div>
