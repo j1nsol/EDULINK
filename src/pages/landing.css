@@ -36,6 +36,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2vw;
+  
 }
 
 .imageContent {
@@ -114,6 +115,10 @@ body {
 
 .about-us-wrapper {
   padding-bottom: 50px;
+  background: #FFFFFF;
+  background: -moz-linear-gradient(top, #FFFFFF 0%, #EBEBEB 66%, #979797 100%);
+  background: -webkit-linear-gradient(top, #FFFFFF 0%, #EBEBEB 66%, #979797 100%);
+  background: linear-gradient(to bottom, #FFFFFF 0%, #EBEBEB 66%, #979797 100%);
 }
 
 .about-us-container {
