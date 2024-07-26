@@ -255,7 +255,7 @@ function PersonalInformation() {
                   </div>
                   <div className="info-item">
                     <div className="info-label">Email Address</div>
-                    <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleChange} className="info-value" required />
+                    <input type="email" name="emailAddress" value={formData.emailAddress} onChange={handleChange} className="info-value" />
                   </div>
                   <div className="info-item">
                     <div className="info-label">Address</div>
