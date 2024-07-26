@@ -4,11 +4,11 @@
     background-color: #fff;
     padding: 30px 22px 79px;
     margin-left: 240px;
-    max-width: 84%; /* Ensure it does not take more than 84% of the screen width */
+    max-width: 84%;
   }
   
   .main-content {
-    width: 100%; /* Full width of account-tab */
+    width: 100%;
   }
   
   .content-container {
@@ -127,7 +127,7 @@
   @media (max-width: 991px) {
     .account-tab {
       padding: 0 20px;
-      max-width: 100%; /* Full width on smaller screens */
+      max-width: 100%;
     }
   
     .content-wrapper {
@@ -171,7 +171,7 @@
   }
   
   .account_centered-table{
-    max-width: 1000px; /* Adjust max-width as needed */
+    max-width: 1000px;
     border-collapse: collapse;
     margin: 20px 0;
     transition: width 0.3s ease, height 0.3s ease;

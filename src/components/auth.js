@@ -1,43 +1,29 @@
-import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from '../firebase';
 
-const AuthDetails = () => {
-  const [authUser, setAuthUser] = useState(null);
+const AuthContext = createContext();
+
+export const AuthProvider = ({ children }) => {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const listen = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setAuthUser(user);
-      } else {
-        setAuthUser(null);
-      }
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      setIsAuthenticated(!!user);
+      setLoading(false);
     });
 
-    return () => {
-      listen();
-    };
+    return () => unsubscribe();
   }, []);
 
-  const userSignOut = () => {
-    signOut(auth)
-      .then(() => {
-        console.log("sign out successful");
-      })
-      .catch((error) => console.log(error));
-  };
-
   return (
-    <div>
-      {authUser ? (
-        <>
-          <a href="../pages/dashboard.js"></a>
-        </>
-      ) : (
-        <p>Signed Out</p>
-      )}
-    </div>
+    <AuthContext.Provider value={{ isAuthenticated, loading }}>
+      {!loading && children}
+    </AuthContext.Provider>
   );
 };
 
-export default AuthDetails;
+export const useAuth = () => {
+  return useContext(AuthContext);
+};

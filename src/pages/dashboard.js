@@ -52,7 +52,7 @@ const Dashboard = () => {
           });
           setCurriculumData(curriculum);
 
-          const schoolSettingsDocRef = doc(db, "schoolsettings", "TuitionPerHour"); // Adjust path if needed
+          const schoolSettingsDocRef = doc(db, "schoolsettings", "TuitionPerHour");
           const schoolSettingsDocSnap = await getDoc(schoolSettingsDocRef);
           const schoolSettingsData = schoolSettingsDocSnap.data();
           setTuitionPerHour(schoolSettingsData.value || 0);
@@ -127,7 +127,7 @@ const Dashboard = () => {
           });
           setCurriculumData(curriculum);
 
-          const schoolSettingsDocRef = doc(db, "schoolsettings", "TuitionPerHour"); // Adjust path if needed
+          const schoolSettingsDocRef = doc(db, "schoolsettings", "TuitionPerHour");
           const schoolSettingsDocSnap = await getDoc(schoolSettingsDocRef);
           const schoolSettingsData = schoolSettingsDocSnap.data();
           setTuitionPerHour(schoolSettingsData.value || 0);
@@ -157,7 +157,7 @@ const Dashboard = () => {
     const user = auth.currentUser;
     if (user) {
       try {
-        // Construct the document reference
+        
         const collectionName = `${schoolYear}_${termValue}_SubjectEnrolled`;
         const userDocRef = doc(db, "users", user.uid, collectionName, subjectCode);
 
@@ -170,7 +170,6 @@ const Dashboard = () => {
           }
         }
 
-        // Refresh the enrolled subjects list
         const subjectsCollectionRef = collection(db, "users", user.uid, collectionName);
         const querySnapshot = await getDocs(subjectsCollectionRef);
         const enrolledSubjects = querySnapshot.docs.map(doc => doc.data());
@@ -187,7 +186,7 @@ const Dashboard = () => {
       <div className="main-content">
         <StudentCard />
         <div className="container-dashboard">
-          <h1>Current Enrolled Subjects {schoolYear}</h1>
+          <h1>ENROLLED SUBJECTS {schoolYear}</h1>
           <div>
             <table className="account_centered-table">
               <thead>

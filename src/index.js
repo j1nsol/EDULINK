@@ -5,6 +5,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import { auth } from './firebase';
 import Landing from './pages/landing';
 import Login from './pages/login';
 import Signup from './pages/signup';
@@ -13,49 +14,49 @@ import StudentProfile from './pages/StudentProfile';
 import Accounttab from './pages/accounttab';
 import Registration from './pages/registration';
 import Schedule from './pages/Schedule';
-
-
+import PrivateRoute from './components/PrivateRoute';
+import { AuthProvider } from './components/auth';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Landing/>,
+    element: <Landing />,
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/signup",
-    element: <Signup/>,
+    element: <Signup />,
   },
   {
     path: "/student/dashboard",
-    element: <Dashboard/>,
+    element: <PrivateRoute element={Dashboard} />,
   },
   {
     path: "/student/profile",
-    element:<StudentProfile/>,
+    element: <PrivateRoute element={StudentProfile} />,
   },
   {
     path: "/student/account",
-    element:<Accounttab/>,
+    element: <PrivateRoute element={Accounttab} />,
   },
   {
     path: "/student/registration",
-    element:<Registration/>,
+    element: <PrivateRoute element={Registration} />,
   },
-
   {
     path: "/student/schedule",
-    element:<Schedule/>,
-  }
-
+    element: <PrivateRoute element={Schedule} />,
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </React.StrictMode>
 );

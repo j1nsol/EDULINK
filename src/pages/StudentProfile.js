@@ -28,7 +28,7 @@ function PersonalInformation() {
     province: '',
     municipalityCity: '',
     zipCode: '',
-    profileImageUrl: '', // Added to store profile image URL
+    profileImageUrl: '',
   });
   const [profileImage, setProfileImage] = useState(null);
   const [imagePreviewUrl, setImagePreviewUrl] = useState('');
@@ -85,7 +85,6 @@ function PersonalInformation() {
     e.preventDefault();
     const user = auth.currentUser;
     if (user) {
-      // Perform validation
       for (let key in formData) {
         if (formData[key] === '') {
           alert(`Please fill in the ${key.replace(/([A-Z])/g, ' $1').toLowerCase()} field`);
@@ -94,7 +93,7 @@ function PersonalInformation() {
       }
 
       try {
-        // Upload image to Firebase Storage
+
         if (profileImage) {
           const imageRef = ref(storage, `profileImages/${user.uid}`);
           const uploadTask = uploadBytesResumable(imageRef, profileImage);
@@ -102,20 +101,20 @@ function PersonalInformation() {
           uploadTask.on(
             'state_changed',
             (snapshot) => {
-              // Progress monitoring (optional)
+
             },
             (error) => {
               console.error('Error uploading image:', error);
             },
             async () => {
-              // Get the image URL and save it to Firestore
+
               const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
               setFormData(prevState => ({ ...prevState, profileImageUrl: downloadURL }));
               await setDoc(doc(db, 'users', user.uid), { ...formData, profileImageUrl: downloadURL });
             }
           );
         } else {
-          // Save data without image if no image is selected
+         
           await setDoc(doc(db, 'users', user.uid), formData);
         }
 

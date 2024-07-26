@@ -21,7 +21,7 @@ function CurriculumTable() {
   useEffect(() => {
     const fetchterm = async () => {
       try {
-        const docRef = doc(db, "schoolsettings", "term"); // Adjust this if necessary
+        const docRef = doc(db, "schoolsettings", "term"); 
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
@@ -39,7 +39,7 @@ function CurriculumTable() {
 
     const fetchSchoolSettings = async () => {
       try {
-        const docRef = doc(db, "schoolsettings", "SchoolYear"); // Adjust this if necessary
+        const docRef = doc(db, "schoolsettings", "SchoolYear"); 
         const docSnap = await getDoc(docRef);
         if (docSnap.exists()) {
           const data = docSnap.data();
@@ -121,7 +121,7 @@ function CurriculumTable() {
       const user = auth.currentUser;
       if (user) {
         try {
-          // Construct collection name using SchoolYear and term
+          
           const collectionName = `${schoolYear}_${termValue}_SubjectEnrolled`;
           console.log(collectionName);
           const querySnapshot = await getDocs(collection(db,"users", user.uid, collectionName));

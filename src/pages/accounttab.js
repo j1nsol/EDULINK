@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './accounttab.css';
 import Sidebar from '../components/sidebar';
-import { db, auth, storage  } from '../firebase'; // Import db and auth from firebase configuration
+import { db, auth, storage  } from '../firebase';
 import { collection, getDocs, doc, getDoc, deleteDoc, setDoc, addDoc } from 'firebase/firestore';
 
 function Accounttab() {

@@ -20,6 +20,7 @@
   max-width: 100%;
   padding: 0 20px 0 1px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5); 
+  height: 527.327px;
 }
 
 @media (max-width: 991px) {
@@ -31,6 +32,7 @@
 .signupph2 {
   gap: 20px;
   display: flex;
+  height: 527.327px;
 }
 
 @media (max-width: 991px) {

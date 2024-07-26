@@ -18,7 +18,7 @@ body{
   
   .centered-table {
     width: 200px;
-    max-width: 800px; /* Adjust max-width as needed */
+    max-width: 800px; 
     border-collapse: collapse;
     margin: 20px 0;
     transition: width 0.3s ease, height 0.3s ease;

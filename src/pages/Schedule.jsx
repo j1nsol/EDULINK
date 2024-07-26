@@ -4,8 +4,8 @@ import Sidebar from '../components/sidebar';
 
 const generateTimeSlots = () => {
   const timeSlots = [];
-  const startTime = 7; // 7 AM
-  const endTime = 22; // 10 PM
+  const startTime = 7; 
+  const endTime = 22; 
 
   for (let hour = startTime; hour <= endTime; hour++) {
     for (let minute = 0; minute < 60; minute += 30) {
@@ -52,7 +52,7 @@ const Schedule = () => {
         {timeSlots.map((time, index) => (
           <div
             className="time-label"
-            style={{ height: '58px', lineHeight: '60px', border: '1px solid black', paddingLeft: "2px", paddingRight:"2px"}} // Center the time vertically
+            style={{ height: '58px', lineHeight: '60px', border: '1px solid black', paddingLeft: "2px", paddingRight:"2px"}} 
             key={index}
           >
             {time}

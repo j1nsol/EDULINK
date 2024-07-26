@@ -9,7 +9,7 @@ function Courses() {
     useEffect(() => {
         const track = document.getElementById("image-track");
 
-        if (!track) return; // Ensure the element exists
+        if (!track) return;
 
         const handleMouseDown = e => {
             track.dataset.mouseDownAt = e.clientX;

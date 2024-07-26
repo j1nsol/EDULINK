@@ -11,11 +11,11 @@ body{
 .time-table-container,
 .day-table-container {
   border: 1px solid #c1c1c1;
-  border-left: none; /* Remove left border to avoid double borders */
+  border-left: none;
 }
 
 .time-table-container {
-  border-left: 1px solid #c1c1c1; /* Only first table has left border */
+  border-left: 1px solid #c1c1c1;
 }
 
 .time-table,
@@ -38,7 +38,7 @@ body{
   border: 1px solid #c1c1c1;
   height: 60px;
   text-align: center;
-  width: 80px; /* Fixed width for consistency */
+  width: 80px;
 }
 
 thead th {
@@ -48,5 +48,5 @@ thead th {
 }
 
 .schedule-container {
-  gap: 0; /* No gaps between the tables */
+  gap: 0;
 }
